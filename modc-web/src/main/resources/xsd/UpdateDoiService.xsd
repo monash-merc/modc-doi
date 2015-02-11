@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:doi="http://merc.monash.edu/ws/schema/doi"
+        targetNamespace="http://merc.monash.edu/ws/schema/doi" elementFormDefault="qualified" attributeFormDefault="qualified">
+    <include schemaLocation="Resource.xsd"/>
+    <include schemaLocation="DoiCommon.xsd"/>
+    <element name="UpdateDoiRequest">
+        <annotation>
+            <documentation>UpdateDoiRequest for updating a doi.</documentation>
+        </annotation>
+        <complexType>
+            <sequence>
+                <element name="serviceId" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="doi" type="doi:Doi" minOccurs="1" maxOccurs="1"/>
+                <element name="resource" type="doi:DResource" minOccurs="1" maxOccurs="1"/>
+                <element name="url" type="doi:DUrl" minOccurs="0" maxOccurs="1"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="UpdateDoiResponse">
+        <annotation>
+            <documentation>UpdateDoiResponse for updating a doi.</documentation>
+        </annotation>
+        <complexType>
+            <sequence>
+                <element name="serviceId" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="responsecode" type="doi:DResponseCode" minOccurs="1" maxOccurs="1"/>
+                <element name="message" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="doi" type="doi:Doi" minOccurs="1" maxOccurs="1"/>
+                <element name="url" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="verbosemessage" type="string" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+            <attribute name="type" type="doi:DResponseTypeAtt" use="required"/>
+        </complexType>
+    </element>
+</schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:doi="http://merc.monash.edu/ws/schema/doi"
+        targetNamespace="http://merc.monash.edu/ws/schema/doi" elementFormDefault="qualified" attributeFormDefault="qualified">
+    <include schemaLocation="DoiCommon.xsd"/>
+    <element name="ActivateDoiRequest">
+        <annotation>
+            <documentation>ActivateDoiRequest for activating a doi.</documentation>
+        </annotation>
+        <complexType>
+            <sequence>
+                <element name="serviceId" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="doi" type="doi:Doi" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="ActivateDoiResponse">
+        <annotation>
+            <documentation>ActivateDoiResponse for activating a doi.</documentation>
+        </annotation>
+        <complexType>
+            <sequence>
+                <element name="serviceId" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="responsecode" type="doi:DResponseCode" minOccurs="1" maxOccurs="1"/>
+                <element name="message" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="doi" type="doi:Doi" minOccurs="1" maxOccurs="1"/>
+                <element name="url" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="verbosemessage" type="string" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+            <attribute name="type" type="doi:DResponseTypeAtt" use="required"/>
+        </complexType>
+    </element>
+</schema>

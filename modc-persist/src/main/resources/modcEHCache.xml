@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="true" monitoring="autodetect"
+         dynamicConfig="true" maxBytesLocalHeap="400M" maxBytesLocalOffHeap="2G">
+    <!--
+ DiskStore configuration
+ =======================
+
+ The diskStore element is optional. To turn off disk store path creation, comment out the diskStore
+ element below.
+
+ Configure it if you have disk persistence enabled for any cache or if you use
+ unclustered indexed search.
+
+ If it is not configured, and a cache is created which requires a disk store, a warning will be
+  issued and java.io.tmpdir will automatically be used.
+
+ diskStore has only one attribute - "path". It is the path to the directory where
+ any required disk files will be created.
+
+ If the path is one of the following Java System Property it is replaced by its value in the
+ running VM. For backward compatibility these should be specified without being enclosed in the ${token}
+ replacement syntax.
+
+ The following properties are translated:
+ * user.home - User's home directory
+ * user.dir - User's current working directory
+ * java.io.tmpdir - Default temp file path
+ * ehcache.disk.store.dir - A system property you would normally specify on the command line
+   e.g. java -Dehcache.disk.store.dir=/u01/myapp/diskdir ...
+ Subdirectories can be specified below the property e.g. java.io.tmpdir/one
+ -->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!--
+    Default Cache configuration. These settings will be applied to caches
+    created programmatically using CacheManager.add(String cacheName).
+    This element is optional, and using CacheManager.add(String cacheName) when
+    its not present will throw CacheException
+
+    The defaultCache has an implicit name "default" which is a reserved cache name.
+    1. a maximum in memory of 10000 elements
+    2. there is no overflow to disk
+    3. memoryStoreEvictionPolicy - LRU (Least Recently Used)
+    4.If there are more than 10000 elements it will overflow to the
+    disk cache, which in this configuration will go to wherever java.io.tmp is
+    defined on your system. On a standard Linux system this will be /tmp"
+    -->
+    <defaultCache
+            maxEntriesLocalHeap="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            diskSpoolBufferSizeMB="30"
+            maxEntriesLocalDisk="10000000"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
+
+    <!--
+        fixedRegion in Memory
+        This cache has a maximum of 1000 elements in memory. There is no overflow to disk, so 1000
+        is also the maximum cache size. Note that when a cache is eternal, timeToLive and
+        timeToIdle are not used and do not need to be specified.
+    -->
+    <cache name="fixedRegion"
+           maxEntriesLocalHeap="1000"
+           eternal="true"
+           memoryStoreEvictionPolicy="FIFO"
+            />
+
+    <!--
+        frequency changed region - freqRegion
+       1. This cache overflows to disk. The disk store is
+          persistent between cache and VM restarts. The disk expiry thread interval is set to 30 minutes, overriding the default of 2 minutes.
+       2. memoryStoreEvictionPolicy: Less Frequently Used - (specified as LFU)
+     -->
+    <cache name="freqRegion"
+           maxEntriesLocalHeap="5000"
+           eternal="false"
+           overflowToDisk="true"
+           diskPersistent="true"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="1800"
+           diskExpiryThreadIntervalSeconds="1"
+           memoryStoreEvictionPolicy="LRU">
+    </cache>
+</ehcache>

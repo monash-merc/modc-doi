@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+       default-lazy-init="false">
+
+    <!-- JDBC property -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>/WEB-INF/conf/jdbc.properties</value>
+                <value>/WEB-INF/conf/doi_service.properties</value>
+                <value>/WEB-INF/conf/mail.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+    <!-- System properties configurator -->
+    <bean id="systemPropertiesConfigurer" class="edu.monash.merc.eddy.modc.common.config.SystemPropertiesConfigurer">
+        <!-- merc.properties file -->
+        <property name="locations">
+            <list>
+                <value>/WEB-INF/conf/merc.properties</value>
+                <value>/WEB-INF/conf/ldap.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+    <!-- FreeMarker doi mint xml -->
+    <bean id="doiFreeMarkerConfiguration" class="edu.monash.merc.eddy.modc.common.config.MFreeMarkerConfiguration">
+        <property name="templateLoaderPath" value="classpath:doi"/>
+        <!-- FreeMarker template file -->
+        <property name="freemarkerSettings">
+            <!-- FreeMarker env setting -->
+            <props>
+                <prop key="template_update_delay">1800</prop>
+                <!--update template delay -->
+                <prop key="default_encoding">UTF-8</prop>
+                <!--template encodding -->
+                <prop key="locale">en_US</prop>
+                <!-- template localcy -->
+            </props>
+        </property>
+    </bean>
+
+    <!-- doi Service configurer -->
+    <bean id="doiServiceHelper" class="edu.monash.merc.eddy.modc.doi.DOIServiceHelper" init-method="init" scope="singleton">
+        <property name="doiServicePoint" value="${doi.service.point}"/>
+        <property name="doiVersion" value="${doi.version}"/>
+        <property name="appId" value="${app.id}"/>
+        <property name="doiMintSuffix" value="${doi.mint.suffix}"/>
+        <property name="doiUpdateSuffix" value="${doi.update.suffix}"/>
+        <property name="doiActivateSuffix" value="${doi.activate.suffix}"/>
+        <property name="doiDeactivateSuffix" value="${doi.deactivate.suffix}"/>
+        <property name="doiTemplate" value="${doi.metadata..template.file}"/>
+        <property name="maxTotalConnections" value="${max.total.connections}"/>
+        <property name="maxPerRouteConnections" value="${max.per.route.connections}"/>
+        <property name="keepAliveInSeconds" value="${keep.alive.in.seconds}"/>
+    </bean>
+
+    <!-- FreeMarker Mail-->
+    <bean id="mailFreeMarker" class="edu.monash.merc.eddy.modc.common.config.MFreeMarkerConfiguration">
+        <property name="templateLoaderPath" value="classpath:mail"/>
+        <!-- FreeMarker template file -->
+        <property name="freemarkerSettings"><!-- FreeMarker env setting -->
+            <props>
+                <prop key="template_update_delay">1800</prop>
+                <!--update template delay -->
+                <prop key="default_encoding">UTF-8</prop>
+                <!--template encodding -->
+                <prop key="locale">en_US</prop>
+                <!-- template localcy -->
+            </props>
+        </property>
+    </bean>
+
+    <!-- Mail Sender -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${smtp.mail.server}"/>
+        <property name="port" value="${mail.server.port}"/>
+        <property name="username" value="${mail.server.username}"/>
+        <property name="password" value="${mail.server.userpassword}"/>
+        <property name="javaMailProperties">
+            <props>
+                <!-- Use SMTP-AUTH to authenticate to SMTP server -->
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <!-- Use TLS to encrypt communication with SMTP server -->
+                <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

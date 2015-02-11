@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:doi="http://merc.monash.edu/ws/schema/doi"
+        targetNamespace="http://merc.monash.edu/ws/schema/doi" elementFormDefault="qualified" attributeFormDefault="qualified">
+    <simpleType name="DResponseCode">
+        <restriction base="string">
+            <enumeration value="MT001"/>
+            <enumeration value="MT002"/>
+            <enumeration value="MT003"/>
+            <enumeration value="MT004"/>
+            <enumeration value="MT005"/>
+            <enumeration value="MT006"/>
+            <enumeration value="MT007"/>
+            <enumeration value="MT008"/>
+            <enumeration value="MT009"/>
+            <enumeration value="MT010"/>
+            <enumeration value="MT011"/>
+            <enumeration value="MT012"/>
+            <enumeration value="MT013"/>
+            <enumeration value="MT090"/>
+            <enumeration value="MT091"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="DResponseTypeAtt">
+        <restriction base="string">
+            <enumeration value="success"/>
+            <enumeration value="failure"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Doi">
+        <restriction base="token">
+            <pattern value="[1][0][/.].*"/>
+        </restriction>
+    </simpleType>
+</schema>

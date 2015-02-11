@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://merc.monash.edu/ws/schema/doi"
+        xmlns:doi="http://merc.monash.edu/ws/schema/doi" elementFormDefault="qualified"
+        attributeFormDefault="qualified">
+    <complexType name="DResource">
+        <sequence>
+            <element name="creators" type="doi:DCreators" minOccurs="1" maxOccurs="1"/>
+            <element name="titles" type="doi:DTitles" minOccurs="1" maxOccurs="1"/>
+            <element name="publisher" type="doi:NoneEmptyString" minOccurs="1" maxOccurs="1"/>
+            <element name="publicationYear" type="date" minOccurs="1" maxOccurs="1"/>
+            <element name="subjects" type="doi:DSubjects" minOccurs="0" maxOccurs="1"/>
+            <element name="contributors" type="doi:DContributors" minOccurs="0" maxOccurs="1"/>
+            <element name="dates" type="doi:DDates" minOccurs="0" maxOccurs="1"/>
+            <element name="language" type="language" minOccurs="0"/>
+            <element name="resourceType" type="doi:DResourceType" minOccurs="0" maxOccurs="1"/>
+            <element name="alternateIdentifiers" type="doi:DAlternateIdentifiers" minOccurs="0" maxOccurs="1"/>
+            <element name="relatedIdentifiers" type="doi:DRelatedIdentifiers" minOccurs="0" maxOccurs="1"/>
+            <element name="sizes" type="doi:DSizes" minOccurs="0" maxOccurs="1"/>
+            <element name="formats" type="doi:DFormats" minOccurs="0" maxOccurs="1"/>
+            <element name="version" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="rights" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="descriptions" type="doi:DDescriptions" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DCreators">
+        <sequence>
+            <element name="creator" type="doi:DCreator" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DCreator">
+        <annotation>
+            <documentation>The main researchers involved working on the data, or the authors of the
+                publication in priority order. May be a corporate/institutional or personal
+                name.
+            </documentation>
+            <documentation>Format: Family, Given.</documentation>
+        </annotation>
+        <sequence>
+            <element name="creatorName" type="doi:NoneEmptyString" minOccurs="1" maxOccurs="1"/>
+            <element name="nameIdentifier" type="doi:DNameIdentifier" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DNameIdentifier">
+        <simpleContent>
+            <extension base="doi:NoneEmptyString">
+                <attribute name="nameIdentifierScheme" type="string" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="DTitles">
+        <sequence>
+            <element name="title" type="doi:DTitle" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DTitle">
+        <annotation>
+            <documentation>A name or title by which a resource is known.</documentation>
+        </annotation>
+        <simpleContent>
+            <extension base="doi:NoneEmptyString">
+                <attribute name="titleType" type="doi:DTitleTypeAtt" use="optional"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <simpleType name="DTitleTypeAtt">
+        <restriction base="string">
+            <enumeration value="AlternativeTitle"/>
+            <enumeration value="Subtitle"/>
+            <enumeration value="TranslatedTitle"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="DSubjects">
+        <sequence>
+            <element name="subject" type="doi:DSubject" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DSubject">
+        <annotation>
+            <documentation>Subject, keywords, classification codes, or key phrases describing the
+                resource.
+            </documentation>
+        </annotation>
+        <simpleContent>
+            <extension base="doi:NoneEmptyString">
+                <attribute name="subjectScheme" type="string" use="optional"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="DContributors">
+        <sequence>
+            <element name="contributor" type="doi:DContributor" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DContributor">
+        <annotation>
+            <documentation>The institution or person responsible for collecting, creating, or
+                otherwise contributing to the developement of the dataset.
+            </documentation>
+            <documentation>The personal name format should be: Family, Given.</documentation>
+        </annotation>
+        <sequence>
+            <element name="contributorName" type="doi:NoneEmptyString" minOccurs="1" maxOccurs="1"/>
+            <element name="nameIdentifier" type="doi:DNameIdentifier" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+        <attribute name="contributorType" type="doi:DContributorTypeAtt" use="required"/>
+    </complexType>
+
+    <simpleType name="DContributorTypeAtt">
+        <annotation>
+            <documentation>The type of contributor of the resource.</documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="ContactPerson"/>
+            <enumeration value="DataCollector"/>
+            <enumeration value="DataManager"/>
+            <enumeration value="Distributor"/>
+            <enumeration value="Editor"/>
+            <enumeration value="Funder"/>
+            <enumeration value="HostingInstitution"/>
+            <enumeration value="Producer"/>
+            <enumeration value="ProjectLeader"/>
+            <enumeration value="ProjectMember"/>
+            <enumeration value="RegistrationAgency"/>
+            <enumeration value="RegistrationAuthority"/>
+            <enumeration value="RelatedPerson"/>
+            <enumeration value="RightsHolder"/>
+            <enumeration value="Researcher"/>
+            <enumeration value="Sponsor"/>
+            <enumeration value="Supervisor"/>
+            <enumeration value="WorkPackageLeader"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="DDates">
+        <sequence>
+            <element name="date" type="doi:DDate" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DDate">
+        <annotation>
+            <documentation>Different dates relevant to the work.</documentation>
+            <documentation>YYYY or YYYY-MM-DD or any other format described in W3CDTF
+                (http://www.w3.org/TR/NOTE-datetime)
+            </documentation>
+        </annotation>
+        <simpleContent>
+            <extension base="dateTime">
+                <attribute name="dateType" type="doi:DDateTypeAtt" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <simpleType name="DDateTypeAtt">
+        <annotation>
+            <documentation>DateType Attribute</documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="Accepted"/>
+            <!--The date that the publisher accepted the resource into their system.-->
+            <enumeration value="Available"/>
+            <!--The date the resource is made publicly available. May be a range.-->
+            <enumeration value="Copyrighted"/>
+            <!--The specific, documented date at which the resource receives a copyrighted status, if applicable.-->
+            <enumeration value="Created"/>
+            <!--The date the resource itself was put together; this could be a date range or a single date for a final component, e.g., the finalised file with all of the data.-->
+            <enumeration value="EndDate"/>
+            <!--Use if any other date type covers a range-->
+            <enumeration value="Issued"/>
+            <!--The date that the resource is published or distributed e.g. to a data center.-->
+            <enumeration value="StartDate"/>
+            <!--Use if any other date type covers a range.-->
+            <enumeration value="Submitted"/>
+            <!--The date the creator submits the resource to the publisher. This could be different from Accepted if the publisher then applies a selection process.-->
+            <enumeration value="Updated"/>
+            <!--The date of the last update to the resource, when the resource is being added to. May be a range.-->
+            <enumeration value="Valid"/>
+            <!--The date or date range during which the dataset or resources are accurate. May be a range.-->
+        </restriction>
+    </simpleType>
+
+    <complexType name="DResourceType">
+        <annotation>
+            <documentation>The type of a resource. You may enter an additional free text
+                description.
+            </documentation>
+        </annotation>
+        <simpleContent>
+            <extension base="string">
+                <attribute name="resourceTypeGeneral" type="doi:DResourceTypeGeneralAtt" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <simpleType name="DResourceTypeGeneralAtt">
+        <annotation>
+            <documentation>The general type of a resource.</documentation>
+            <documentation>Use this attribute to choose the general type of the resource from the
+                controlled list.
+            </documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="Collection"/>
+            <enumeration value="Dataset"/>
+            <enumeration value="Event"/>
+            <enumeration value="Film"/>
+            <enumeration value="Image"/>
+            <enumeration value="InteractiveResource"/>
+            <enumeration value="Model"/>
+            <enumeration value="PhysicalObject"/>
+            <enumeration value="Service"/>
+            <enumeration value="Software"/>
+            <enumeration value="Sound"/>
+            <enumeration value="Text"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="DAlternateIdentifiers">
+        <sequence>
+            <element name="alternateIdentifier" type="doi:DAlternateIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DAlternateIdentifier">
+        <annotation>
+            <documentation>An identifier other than the primary identifier applied to the resource being registered. This may be any alphanumeric string which is unique within its domain of issue. The
+                format is open
+            </documentation>
+        </annotation>
+        <simpleContent>
+            <extension base="string">
+                <attribute name="alternateIdentifierType" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="DRelatedIdentifiers">
+        <sequence>
+            <element name="relatedIdentifier" type="doi:DRelatedIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DRelatedIdentifier">
+        <annotation>
+            <documentation>Identifiers of related resources. Use this property to indicate subsets of properties, as appropriate.</documentation>
+        </annotation>
+        <simpleContent>
+            <extension base="string">
+                <attribute name="relatedIdentifierType" type="doi:DRelatedIdentifierTypeAtt" use="required"/>
+                <attribute name="relationType" type="doi:DRelationTypeAtt" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <simpleType name="DRelatedIdentifierTypeAtt">
+        <annotation>
+            <documentation>The type of the RelatedIdentifier.</documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="ARK"/>
+            <enumeration value="DOI"/>
+            <enumeration value="EAN13"/>
+            <enumeration value="EISSN"/>
+            <enumeration value="Handle"/>
+            <enumeration value="ISBN"/>
+            <enumeration value="ISSN"/>
+            <enumeration value="ISTC"/>
+            <enumeration value="LISSN"/>
+            <enumeration value="LSID"/>
+            <enumeration value="PURL"/>
+            <enumeration value="UPC"/>
+            <enumeration value="URL"/>
+            <enumeration value="URN"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="DRelationTypeAtt">
+        <annotation>
+            <documentation>Description of the relationship of the resource being registered (A) and the related resource (B).</documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="IsCitedBy"/>
+            <!--indicates that B includes A in a citation-->
+            <enumeration value="Cites"/>
+            <!--indicates that A includes B in a citation-->
+            <enumeration value="IsSupplementTo"/>
+            <!--indicates that A is a supplement to B-->
+            <enumeration value="IsSupplementedBy"/>
+            <!--indicates that B is a supplement to A-->
+            <enumeration value="IsContinuedBy"/>
+            <!--indicates A is continued by the work B-->
+            <enumeration value="Continues"/>
+            <!--indicates A is a continuation of the work B-->
+            <enumeration value="IsNewVersionOf"/>
+            <!--indicates B is a new edition of A, where the new edition has been modified or updated-->
+            <enumeration value="IsPreviousVersionOf"/>
+            <!--indicates B is a previous edition of A-->
+            <enumeration value="IsPartOf"/>
+            <!--indicates A is a portion of B-->
+            <enumeration value="HasPart"/>
+            <!--indicates A includes the part B-->
+            <enumeration value="IsReferencedBy"/>
+            <!--indicates A is used as a source of information by B-->
+            <enumeration value="References"/>
+            <!--indicates B is used as a source of information for A-->
+            <enumeration value="IsDocumentedBy"/>
+            <!--indicates B is documentation about/explaining A-->
+            <enumeration value="Documents"/>
+            <!--indicates A is documentation about/explaining B-->
+            <enumeration value="IsCompiledBy"/>
+            <!--indicates B is used to compile or create A-->
+            <enumeration value="Compiles"/>
+            <!--indicates B is the result of a compile or creation event using A-->
+            <enumeration value="IsVariantFormOf"/>
+            <!--indicates B is a variant or different form of A, e.g. calculated or calibrated form or different packaging-->
+            <enumeration value="IsOriginalFormOf"/>
+            <!--indicates B is the original form of A-->
+        </restriction>
+    </simpleType>
+
+    <complexType name="DSizes">
+        <sequence>
+            <annotation>
+                <documentation>Unstructures size information about the resource.</documentation>
+            </annotation>
+            <element name="size" type="string" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DFormats">
+        <sequence>
+            <annotation>
+                <documentation>Technical format of the resource. Use file extension or MIME type where possible.</documentation>
+            </annotation>
+            <element name="format" type="string" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DDescriptions">
+        <sequence>
+            <element name="description" type="doi:DDescription" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DDescription">
+        <annotation>
+            <documentation>Subject, keywords, classification codes, or key phrases describing the
+                resource.
+            </documentation>
+        </annotation>
+        <simpleContent>
+            <extension base="doi:NoneEmptyString">
+                <attribute name="descriptionType" type="doi:DDescriptionTypeAtt" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <simpleType name="DDescriptionTypeAtt">
+        <annotation>
+            <documentation>The type of the descriptionType Attribute.</documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="Abstract"/>
+            <enumeration value="SeriesInformation"/>
+            <enumeration value="TableOfContents"/>
+            <enumeration value="Other"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="NoneEmptyString">
+        <restriction base="string">
+            <minLength value="1"/>
+            <maxLength value="4000"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="DUrl">
+        <restriction base="string">
+            <pattern value="(https?://)?[-\w.]+(:\d{2,5})?(/([\w/_.]*)?)?"/>
+        </restriction>
+    </simpleType>
+</schema>

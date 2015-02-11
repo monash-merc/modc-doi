@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <!-- user -->
+    <muser id="1" first_name="Dev" last_name="MeRC" display_name="Dev MeRC" password="12345" email="dev.merc@gmail.com" unique_id="dev.merc@gmail.com" is_activated="true" is_rejected ="false" user_type="1"/>
+    <muser id="2" first_name="Test" last_name="Modc" display_name="Test Modc" password="12345" email="test.modc@gmail.com" unique_id="test.modc@gmail.com" is_activated="true" is_rejected ="false" user_type="2"/>
+    <muser id="3" first_name="Dev3" last_name="MeRC3" display_name="Dev3 MeRC3" password="12345" email="dev3.merc@gmail.com" unique_id="dev3.merc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="4" first_name="Test4" last_name="Modc4" display_name="Test4 Modc4" password="12345" email="test4.modc@gmail.com" unique_id="test4.modc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="5" first_name="Dev5" last_name="MeRC5" display_name="Dev5 MeRC5" password="12345" email="dev5.merc@gmail.com" unique_id="dev5.merc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="6" first_name="Test6" last_name="Modc6" display_name="Test6 Modc6" password="12345" email="test6.modc@gmail.com" unique_id="test6.modc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="7" first_name="Dev7" last_name="MeRC7" display_name="Dev7 MeRC7" password="12345" email="dev7.merc@gmail.com" unique_id="dev7.merc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="8" first_name="Test8" last_name="Modc8" display_name="Test8 Modc8" password="12345" email="test8.modc@gmail.com" unique_id="test8.modc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="9" first_name="Dev9" last_name="MeRC9" display_name="Dev9 MeRC9" password="12345" email="dev9.merc@gmail.com" unique_id="dev9.merc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="10" first_name="Test10" last_name="Modc10" display_name="Test10 Modc10" password="12345" email="test10.modc@gmail.com" unique_id="test10.modc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="11" first_name="Dev11" last_name="MeRC11" display_name="Dev11 MeRC11" password="12345" email="dev11.merc@gmail.com" unique_id="dev11.merc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <muser id="12" first_name="Test12" last_name="Modc12" display_name="Test12 Modc12" password="12345" email="test12.modc@gmail.com" unique_id="test12.modc@gmail.com" is_activated="true" is_rejected ="false" user_type="3"/>
+    <profile id="1" gender ="Male" user_id="1" city="Melbourne" country="Australia"/>
+    <profile id="2" gender ="Male" user_id="2" city="Melbourne" country="Australia"/>
+    <profile id="3" gender ="Male" user_id="3" city="Melbourne" country="Australia"/>
+    <profile id="4" gender ="Male" user_id="4" city="Melbourne" country="Australia"/>
+    <profile id="5" gender ="Male" user_id="5" city="Melbourne" country="Australia"/>
+    <profile id="6" gender ="Male" user_id="6" city="Melbourne" country="Australia"/>
+    <profile id="7" gender ="Male" user_id="7" city="Melbourne" country="Australia"/>
+    <profile id="8" gender ="Male" user_id="8" city="Melbourne" country="Australia"/>
+    <profile id="9" gender ="Male" user_id="9" city="Melbourne" country="Australia"/>
+    <profile id="10" gender ="Male" user_id="10" city="Melbourne" country="Australia"/>
+    <profile id="11" gender ="Male" user_id="11" city="Melbourne" country="Australia"/>
+    <profile id="12" gender ="Male" user_id="12" city="Melbourne" country="Australia"/>
+</dataset>

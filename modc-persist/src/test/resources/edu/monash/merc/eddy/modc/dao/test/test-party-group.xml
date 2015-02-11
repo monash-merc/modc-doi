@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <party id="3" ref_key="12" identifier="MON23000012" url="http://www.monash.edu.au/eresearch" description="this is a  group party" postal_address="postal address" name="groupParty1" party_type="group"/>
+    <party id="4" ref_key="13" identifier="MON23000013" url="http://www.monash.edu.au/eresearch" description="this is a  group party" postal_address="postal address" name="groupParty2" party_type="group"/>
+</dataset>

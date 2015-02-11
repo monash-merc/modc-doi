@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <mapping class="edu.monash.merc.eddy.modc.domain.Avatar"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MAddress"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MCitation"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MCollection"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MCoverage"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MGroup"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MIdentifier"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MKeyword"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MLicence"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MParty"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MPerson"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.MPublication"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.Profile"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.User"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.ServiceApp"/>
+    </session-factory>
+</hibernate-configuration>

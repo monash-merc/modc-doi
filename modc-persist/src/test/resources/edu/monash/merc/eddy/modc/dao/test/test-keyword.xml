@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <keyword id="1" keyword="chromosome 7" type="local"/>
+    <keyword id="2" keyword="gene1" type="local"/>
+    <keyword id="3" keyword="gene2" type="local"/>
+    <keyword id="4" keyword="gene3" type="local"/>
+    <keyword id="5" keyword="EIF3B" type="local"/>
+    <keyword id="6" keyword="Ozflux" type="local"/>
+    <keyword id="7" keyword="Ecosystem, OzFlux" type="local"/>
+</dataset>

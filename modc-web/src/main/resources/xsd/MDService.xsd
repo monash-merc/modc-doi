@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://merc.monash.edu/ws/schema/mds" xmlns:tns="http://merc.monash.edu/ws/schema/mds"
+        elementFormDefault="qualified" attributeFormDefault="qualified">
+    <element name="WPublishRequest">
+        <complexType>
+            <sequence>
+                <element name="appId" type="string" minOccurs="1" maxOccurs="1"/>
+                <element name="collection" type="tns:WCollection" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="WPublishResponse">
+        <complexType>
+            <sequence>
+                <element name="code" type="tns:WPublishResponseCode"/>
+                <element name="message" type="string"/>
+                <element name="result" type="tns:WPublishResponseResult"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="WCollection">
+        <sequence>
+            <element name="key" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="identifier" type="tns:WIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="description" type="tns:WDescType" minOccurs="0" maxOccurs="1"/>
+            <element name="createdDate" type="dateTime" minOccurs="0" maxOccurs="1"/>
+            <element name="endDate" type="dateTime" minOccurs="0" maxOccurs="1"/>
+            <element name="postalAddress" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="electronicAddress" type="tns:WElectronicAddress" minOccurs="0" maxOccurs="1"/>
+            <element name="spatialCoverage" type="tns:WSpatialCoverage" minOccurs="0" maxOccurs="1"/>
+            <element name="licence" type="tns:WLicence" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="accessRights" type="tns:WDescType" minOccurs="0" maxOccurs="1"/>
+            <element name="subject" type="tns:WSubject" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="publication" type="tns:WPublication" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="citation" type="tns:WCitation" minOccurs="0" maxOccurs="unbounded"/>
+            <!-- one or more associated parties -->
+            <element name="party" type="tns:WParty" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="type" type="tns:WCollectionType" use="required"/>
+    </complexType>
+
+    <!-- collection type -->
+    <simpleType name="WCollectionType">
+        <restriction base="string">
+            <enumeration value="catalogueOrIndex"/>
+            <enumeration value="collection"/>
+            <enumeration value="registry"/>
+            <enumeration value="repository"/>
+            <enumeration value="dataset"/>
+        </restriction>
+    </simpleType>
+
+     <!-- identifier -->
+    <complexType name="WIdentifier">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="type" type="tns:WIdentifierType" use="optional"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!-- identifier attribute type -->
+    <simpleType name="WIdentifierType">
+        <restriction base="string">
+            <enumeration value="abn"/>
+            <enumeration value="arc"/>
+            <enumeration value="ark"/>
+            <enumeration value="doi"/>
+            <enumeration value="handle"/>
+            <enumeration value="infouri"/>
+            <enumeration value="isil"/>
+            <enumeration value="local"/>
+            <enumeration value="purl"/>
+            <enumeration value="uri"/>
+        </restriction>
+    </simpleType>
+
+    <!-- electronic address -->
+    <complexType name="WElectronicAddress">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="type" type="tns:WAddressType" use="optional"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!-- electronic address types -->
+    <simpleType name="WAddressType">
+        <restriction base="string">
+            <enumeration value="email"/>
+            <enumeration value="url"/>
+            <enumeration value="other"/>
+        </restriction>
+    </simpleType>
+
+    <!-- spatial coverage -->
+    <complexType name="WSpatialCoverage">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="type" type="tns:WSpatialType" use="optional"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!-- spatial coverage attribute type -->
+    <simpleType name="WSpatialType">
+        <restriction base="string">
+            <enumeration value="gml"/>
+            <enumeration value="gmlKmlPolyCoords"/>
+            <enumeration value="gpx"/>
+            <enumeration value="iso31661"/>
+            <enumeration value="iso31662"/>
+            <enumeration value="iso19139dcmiBox"/>
+            <enumeration value="kml"/>
+            <enumeration value="kmlPolyCoords"/>
+            <enumeration value="dcmiPoint"/>
+            <enumeration value="text"/>
+        </restriction>
+    </simpleType>
+
+    <!-- licence -->
+    <simpleType name="WLicence">
+        <restriction base="string">
+            <maxLength value="4000"/>
+        </restriction>
+    </simpleType>
+
+    <!-- subject types currently used in rifcs are:
+        1. anzsrc-for
+        2. anzsrc-toa
+        3. anzsrc-seo
+        4. gcmd
+        5. local
+        6. user-defined any types
+    -->
+    <complexType name="WSubject">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="type" type="string" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!-- description type -->
+    <simpleType name="WDescType">
+        <restriction base="string">
+            <maxLength value="4000"/>
+        </restriction>
+    </simpleType>
+
+    <!-- publication -->
+    <complexType name="WPublication">
+        <sequence>
+            <element name="url" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="title" type="tns:WTitleType" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <!-- publication title type -->
+    <simpleType name="WTitleType">
+        <restriction base="string">
+            <maxLength value="4000"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="WCitation">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="style" type="tns:WCitationType" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!-- collection type -->
+    <simpleType name="WCitationType">
+        <restriction base="string">
+            <enumeration value="Harvard"/>
+            <enumeration value="APA"/>
+            <enumeration value="MLA"/>
+            <enumeration value="Vancouver"/>
+            <enumeration value="IEEE"/>
+            <enumeration value="CSE"/>
+            <enumeration value="Chicago"/>
+            <enumeration value="AMA"/>
+            <enumeration value="AGPS-AGIMO"/>
+            <enumeration value="AGLC"/>
+            <enumeration value="ACS"/>
+            <enumeration value="Datacite"/>
+        </restriction>
+    </simpleType>
+
+    <!-- email type -->
+    <simpleType name="emailType">
+        <restriction base="string">
+            <pattern value="[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+([A-Za-z0-9]{2,4})"/>
+            <minLength value="6"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Metadata publish response code -->
+    <simpleType name="WPublishResponseCode">
+        <restriction base="string">
+            <enumeration value="success"/>
+            <enumeration value="failure"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Metadata publish response result -->
+    <complexType name="WPublishResponseResult">
+        <sequence>
+            <element name="collection" type="tns:WCollecionResponse" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="WCollecionResponse">
+        <sequence>
+            <element name="key" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="identifier" type="tns:WIdentifier" minOccurs="1" maxOccurs="unbounded"/>
+            <element name="party" type="tns:WPublishPartyResponse" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="WPublishPartyResponse">
+        <sequence>
+            <element name="key" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="identifier" type="tns:WIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="relation" type="tns:WPartyRelationType" use="required"/>
+    </complexType>
+
+    <!-- party -->
+    <complexType name="WParty">
+        <sequence>
+            <element name="key" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="identifier" type="tns:WIdentifier" minOccurs="0" maxOccurs="1"/>
+            <choice>
+                <element name="person" type="tns:WPerson"/>
+                <element name="group" type="tns:WGroup"/>
+            </choice>
+            <element name="url" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="postalAddress" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="description" type="tns:WDescType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+        <attribute name="relation" type="tns:WPartyRelationType" use="required"/>
+    </complexType>
+
+    <!-- party refer to person -->
+    <complexType name="WPerson">
+        <sequence>
+            <element name="title" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="firstName" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="lastName" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="email" type="tns:emailType" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <!-- party refer to group -->
+    <complexType name="WGroup">
+        <sequence>
+            <element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <!-- party relation to collection -->
+    <simpleType name="WPartyRelationType">
+        <restriction base="string">
+            <enumeration value="hasAssociationWith"/>
+            <enumeration value="hasMember"/>
+            <enumeration value="hasPart"/>
+            <enumeration value="isCollectorOf"/>
+            <enumeration value="isFundedBy"/>
+            <enumeration value="isFunderOf"/>
+            <enumeration value="isManagedBy"/>
+            <enumeration value="isManagerOf"/>
+            <enumeration value="isMemberOf"/>
+            <enumeration value="isOwnedBy"/>
+            <enumeration value="isOwnerOf"/>
+            <enumeration value="isPartOf"/>
+            <enumeration value="isParticipantIn"/>
+            <enumeration value="enriches"/>
+        </restriction>
+    </simpleType>
+</schema>

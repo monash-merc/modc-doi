@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       				http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       				http://www.springframework.org/schema/context
+       				http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       	 			http://www.springframework.org/schema/web-services
+       				http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
+
+    <sws:annotation-driven/>
+    <context:component-scan base-package="edu.monash.merc.eddy.modc.ws"/>
+
+    <!-- SAAJ-specific implementation of the WebServiceMessageFactory. Wraps a SAAJ MessageFactory. This factory will use SAAJ
+    1.3 when found, or fall back to SAAJ 1.2 or even 1.1. -->
+    <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
+
+    <!-- define a web service message receiver handler adapter -->
+    <!-- Requires a message factory so we reference one -->
+    <bean class="org.springframework.ws.transport.http.WebServiceMessageReceiverHandlerAdapter" p:messageFactory-ref="messageFactory"/>
+
+    <bean class="org.springframework.ws.transport.http.WsdlDefinitionHandlerAdapter">
+        <property name="transformSchemaLocations" value="true"/>
+    </bean>
+
+    <!-- define messagDispatcher bean which is responsible for forwarding web service request to the correct adapters. This is exactly similar to Spring MVC's
+         DispatcherServlet -->
+    <bean id="messageDispatcher" class="org.springframework.ws.soap.server.SoapMessageDispatcher">
+
+        <property name="endpointAdapters">
+            <list>
+                <ref bean="defaultMethodEndpointAdapter"/>
+            </list>
+        </property>
+        <property name="endpointMappings">
+            <list>
+                <ref bean="endpointMapping"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- define md web service schema -->
+    <bean id="mdServiceSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="classpath:/xsd/MDService.xsd"/>
+    </bean>
+
+    <!-- define mint doi web service schema -->
+    <bean id="mintDoiSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="classpath:/xsd/MintDoiService.xsd"/>
+    </bean>
+
+    <!-- define update doi web service schema -->
+    <bean id="updateDoiSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="classpath:/xsd/UpdateDoiService.xsd"/>
+    </bean>
+
+
+    <!-- define activate doi web service schema -->
+    <bean id="activateDoiSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="classpath:/xsd/ActivateDoiService.xsd"/>
+    </bean>
+
+    <!-- define deactivate doi web service schema -->
+    <bean id="deactivateDoiSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="classpath:/xsd/DeactivateDoiService.xsd"/>
+    </bean>
+
+    <sws:interceptors>
+        <ref bean="wss4jSecurityInterceptor"/>
+    </sws:interceptors>
+
+    <!-- Register Wss4jSecurityInterceptor in the server-side application
+     set the validation action to UsernameToken, and configure the callbackHandler -->
+    <bean id="wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+        <property name="validationCallbackHandler" ref="springSecurityHandler"/>
+        <property name="validationActions" value="UsernameToken"/>
+    </bean>
+
+    <!-- using xws security interceptor -->
+    <!-- bean id="xwsSecurityInterceptor" class="org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor">
+        <property name="policyConfiguration" value="/WEB-INF/conf/securityPolicy.xml"/>
+        <property name="callbackHandlers">
+            <list>
+                <ref bean="springSecurityHandler"/>
+            </list>
+        </property>
+    </bean -->
+
+    <!-- loggingInterceptor -->
+    <bean id="loggingInterceptor" class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
+
+    <!-- validatingInterceptor -->
+    <bean id="validatingInterceptor" class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
+        <property name="xsdSchema" ref="mdServiceSchema"/>
+        <property name="validateRequest" value="true"/>
+        <property name="validateResponse" value="true"/>
+    </bean>
+
+
+     <!-- Authenticating of a web service call using Spring Security to authenticate  user-name token with a digested password -->
+    <bean id="springSecurityHandler" class="org.springframework.ws.soap.security.wss4j.callback.SpringSecurityPasswordValidationCallbackHandler">
+        <property name="userDetailsService" ref="userDetailsService"/>
+    </bean>
+
+    <!-- xwss callback handler -->
+    <!-- bean id="springSecurityHandler" class="org.springframework.ws.soap.security.xwss.callback.SpringDigestPasswordValidationCallbackHandler">
+        <property name="userDetailsService" ref="userDetailsService"/>
+    </bean -->
+
+    <bean id="userDetailsService" class="edu.monash.merc.eddy.modc.service.ws.WSUserDetailService"/>
+
+    <!-- Detects @PayloadRoot annotations on @Endpoint bean methods. -->
+    <bean name="endpointMapping" class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="loggingInterceptor" />
+                <ref bean="wss4jSecurityInterceptor" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- define DefaultMethodEndpointAdapter -->
+    <bean id="defaultMethodEndpointAdapter" class="org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter">
+        <!-- methodArgumentResolvers -->
+        <property name="methodArgumentResolvers">
+            <list>
+                <ref bean="marshallingPayloadMethodProcessor"/>
+            </list>
+        </property>
+
+        <!-- methodReturnValueHandlers -->
+        <property name="methodReturnValueHandlers">
+            <list>
+                <ref bean="marshallingPayloadMethodProcessor"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- MarshallingPayloadMethodProcessor -->
+    <bean id="marshallingPayloadMethodProcessor" class="org.springframework.ws.server.endpoint.adapter.method.MarshallingPayloadMethodProcessor">
+        <constructor-arg ref="marshaller"/>
+        <constructor-arg ref="marshaller"/>
+    </bean>
+
+    <!-- Jaxb2 Marshaller -->
+    <bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="contextPath" value="edu.monash.merc.eddy.modc.ws.model"/>
+    </bean>
+
+    <!-- define MDService endpoint -->
+    <sws:static-wsdl id="MDService" location="classpath:/wsdl/MDService.wsdl" />
+
+    <!-- define MintDoiService endpoint -->
+    <sws:static-wsdl id="MintDoiService" location="classpath:/wsdl/MintDoiService.wsdl" />
+
+    <!-- define UpdateDoiService endpoint -->
+    <sws:static-wsdl id="UpdateDoiService" location="classpath:/wsdl/UpdateDoiService.wsdl" />
+
+    <!-- define DeactivateDoiService endpoint -->
+    <sws:static-wsdl id="DeactivateDoiService" location="classpath:/wsdl/DeactivateDoiService.wsdl" />
+
+    <!-- define ActivateDoiService endpoint -->
+    <sws:static-wsdl id="ActivateDoiService" location="classpath:/wsdl/ActivateDoiService.wsdl" />
+
+    <!-- Annotation Soap Fault Exception resolver -->
+    <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"/>
+</beans>
