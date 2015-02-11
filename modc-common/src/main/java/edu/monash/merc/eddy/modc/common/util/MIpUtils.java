@@ -38,7 +38,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by simonyu - xiaoming.yu@monash.edu
  * Date: 23/10/14
  */
-public class MIPUtils {
+public class MIpUtils {
 
     private static final String NUKNOWN = "unknown";
     private static final String[] ADDRESS_HEADERS = { "X-Forwarded-For", "Proxy-Client-IP", "WL-Proxy-Client-IP", "X-Real-IP" };
