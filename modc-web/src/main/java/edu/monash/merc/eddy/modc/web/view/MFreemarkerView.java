@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Created by simonyu on 5/08/2014.
  */
-public class MFreeMarkerView extends FreeMarkerView {
+public class MFreemarkerView extends FreeMarkerView {
     /**
      * deployed base path
      */
@@ -87,19 +87,19 @@ public class MFreeMarkerView extends FreeMarkerView {
 
 
     /**
-     * 计算要生成的静态文件相对路径 因为大家在调试的时候一般在Tomcat的webapps下面新建站点目录的， 但在实际应用时直接布署到ROOT目录里面,这里要保证路径的一致性。
      *
+     * get the statice file path
      * @param request HttpServletRequest
-     * @return /目录/*.htm
+     * @return a file name
      */
     private String getRequestHTML(HttpServletRequest request) {
-        // web应用名称,部署在ROOT目录时为空
+        // get context path -- normally the web app name
         String contextPath = request.getContextPath();
-        // web应用/目录/文件.do
+        // find request page
         String requestURI = request.getRequestURI();
-        // basePath里面已经有了web应用名称，所以直接把它replace掉，以免重复
+        // if basePath contains web app name, just replace it
         requestURI = requestURI.replaceFirst(contextPath, "");
-        // 将.do改为.htm,稍后将请求转发到此htm文件
+        // change the .do action as .htm, the send the request to this file
         requestURI = requestURI.substring(0, requestURI.indexOf(".")) + ".htm";
         if (logger.isDebugEnabled()) {
             logger.debug("request html url" + requestURI);
