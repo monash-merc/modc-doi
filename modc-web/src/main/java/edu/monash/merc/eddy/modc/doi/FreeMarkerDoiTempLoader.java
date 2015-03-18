@@ -29,7 +29,7 @@
 package edu.monash.merc.eddy.modc.doi;
 
 import edu.monash.merc.eddy.modc.common.config.MFreeMarkerConfiguration;
-import edu.monash.merc.eddy.modc.common.exception.MException;
+import edu.monash.merc.eddy.modc.common.Exception.MException;
 import freemarker.template.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -28,7 +28,7 @@
 
 package edu.monash.merc.eddy.modc.web.validation;
 
-import edu.monash.merc.eddy.modc.common.exception.MIllegalArgumentException;
+import edu.monash.merc.eddy.modc.common.Exception.MIllegalArgumentException;
 import edu.monash.merc.eddy.modc.web.exception.MActionSupportException;
 import org.springframework.ui.Model;
 import org.springframework.web.context.WebApplicationContext;
@@ -36,7 +36,6 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Locale;
 

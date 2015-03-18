@@ -1,9 +1,10 @@
-package edu.monash.merc.eddy.modc.common.exception;
+package edu.monash.merc.eddy.modc.common.Exception;
 
 /**
  * Created by simonyu on 14/08/2014.
  */
 public class MException extends RuntimeException {
+
     /**
      * Default constructor.
      */

@@ -28,7 +28,7 @@
 
 package edu.monash.merc.eddy.modc.doi;
 
-import edu.monash.merc.eddy.modc.common.exception.MXmlParseException;
+import edu.monash.merc.eddy.modc.common.Exception.MXmlParseException;
 import edu.monash.merc.eddy.modc.common.util.MDUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jaxen.jdom.JDOMXPath;
