@@ -28,7 +28,7 @@
 
 package edu.monash.merc.eddy.modc.common.ldap;
 
-import edu.monash.merc.eddy.modc.common.Exception.MSecurityException;
+import edu.monash.merc.eddy.modc.common.exceptions.MSecurityException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;

@@ -1,6 +1,6 @@
 package edu.monash.merc.eddy.modc.dao;
 
-import edu.monash.merc.eddy.modc.common.Exception.MInvalidSQLException;
+import edu.monash.merc.eddy.modc.common.exceptions.MInvalidSQLException;
 import edu.monash.merc.eddy.modc.repository.IRepository;
 import edu.monash.merc.eddy.modc.sql.page.Pager;
 import edu.monash.merc.eddy.modc.support.QueryHelper;

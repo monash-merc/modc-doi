@@ -1,13 +1,14 @@
-package edu.monash.merc.eddy.modc.common.Exception;
+package edu.monash.merc.eddy.modc.common.exceptions;
 
 /**
  * Created by simonyu on 14/08/2014.
  */
-public class MSecurityException extends RuntimeException {
+public class MException extends RuntimeException {
+
     /**
      * Default constructor.
      */
-    public MSecurityException() {
+    public MException() {
         super();
     }
 
@@ -17,7 +18,7 @@ public class MSecurityException extends RuntimeException {
      * @param message
      *            error message to set.
      */
-    public MSecurityException(final String message) {
+    public MException(final String message) {
         super(message);
     }
 
@@ -27,7 +28,7 @@ public class MSecurityException extends RuntimeException {
      * @param rootCause
      *            Throwable object to set.
      */
-    public MSecurityException(final Throwable rootCause) {
+    public MException(final Throwable rootCause) {
         super(rootCause);
     }
 
@@ -39,7 +40,7 @@ public class MSecurityException extends RuntimeException {
      * @param rootCause
      *            Throwable object to set.
      */
-    public MSecurityException(final String message, final Throwable rootCause) {
+    public MException(final String message, final Throwable rootCause) {
         super(message, rootCause);
     }
 }

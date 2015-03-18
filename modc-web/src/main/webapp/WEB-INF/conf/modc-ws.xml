@@ -239,6 +239,6 @@
     -->
     <!-- sws:static-wsdl id="entityImport" location="classpath:/wsdl/entityImport.wsdl" / -->
 
-    <!-- Annotation Soap Fault Exception resolver -->
+    <!-- Annotation Soap Fault exceptions resolver -->
     <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"/>
 </beans>

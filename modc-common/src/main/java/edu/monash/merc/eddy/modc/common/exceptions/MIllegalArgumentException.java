@@ -26,7 +26,7 @@
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package edu.monash.merc.eddy.modc.common.Exception;
+package edu.monash.merc.eddy.modc.common.exceptions;
 
 /**
  * Created by simonyu on 14/08/2014.

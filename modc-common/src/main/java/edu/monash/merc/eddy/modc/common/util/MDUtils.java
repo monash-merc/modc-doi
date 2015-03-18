@@ -28,7 +28,7 @@
 
 package edu.monash.merc.eddy.modc.common.util;
 
-import edu.monash.merc.eddy.modc.common.Exception.MException;
+import edu.monash.merc.eddy.modc.common.exceptions.MException;
 import org.apache.commons.lang.StringUtils;
 
 import java.net.URLDecoder;
