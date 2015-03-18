@@ -26,16 +26,16 @@
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package edu.monash.merc.eddy.modc.common.exceptions;
+package edu.monash.merc.eddy.modc.common.exception;
 
 /**
  * Created by simonyu on 14/08/2014.
  */
-public class MInvalidSQLException extends RuntimeException {
+public class MXmlParseException extends RuntimeException {
     /**
      * Default constructor.
      */
-    public MInvalidSQLException() {
+    public MXmlParseException() {
         super();
     }
 
@@ -45,7 +45,7 @@ public class MInvalidSQLException extends RuntimeException {
      * @param message
      *            error message to set.
      */
-    public MInvalidSQLException(final String message) {
+    public MXmlParseException(final String message) {
         super(message);
     }
 
@@ -55,7 +55,7 @@ public class MInvalidSQLException extends RuntimeException {
      * @param rootCause
      *            Throwable object to set.
      */
-    public MInvalidSQLException(final Throwable rootCause) {
+    public MXmlParseException(final Throwable rootCause) {
         super(rootCause);
     }
 
@@ -67,7 +67,7 @@ public class MInvalidSQLException extends RuntimeException {
      * @param rootCause
      *            Throwable object to set.
      */
-    public MInvalidSQLException(final String message, final Throwable rootCause) {
+    public MXmlParseException(final String message, final Throwable rootCause) {
         super(message, rootCause);
     }
 }

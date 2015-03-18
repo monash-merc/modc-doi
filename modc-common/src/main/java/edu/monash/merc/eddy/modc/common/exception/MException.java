@@ -1,4 +1,4 @@
-package edu.monash.merc.eddy.modc.common.exceptions;
+package edu.monash.merc.eddy.modc.common.exception;
 
 /**
  * Created by simonyu on 14/08/2014.

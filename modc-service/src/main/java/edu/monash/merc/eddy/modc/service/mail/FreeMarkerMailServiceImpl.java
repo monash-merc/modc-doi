@@ -28,7 +28,7 @@
 package edu.monash.merc.eddy.modc.service.mail;
 
 import edu.monash.merc.eddy.modc.common.config.MFreeMarkerConfiguration;
-import edu.monash.merc.eddy.modc.common.exceptions.MException;
+import edu.monash.merc.eddy.modc.common.exception.MException;
 import edu.monash.merc.eddy.modc.common.mail.MailSenderThread;
 import freemarker.template.Template;
 import org.apache.log4j.Logger;

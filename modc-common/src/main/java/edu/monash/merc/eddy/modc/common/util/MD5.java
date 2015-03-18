@@ -1,6 +1,6 @@
 package edu.monash.merc.eddy.modc.common.util;
 
-import edu.monash.merc.eddy.modc.common.exceptions.MSecurityException;
+import edu.monash.merc.eddy.modc.common.exception.MSecurityException;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

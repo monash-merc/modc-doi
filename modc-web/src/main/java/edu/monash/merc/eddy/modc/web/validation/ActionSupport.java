@@ -28,7 +28,7 @@
 
 package edu.monash.merc.eddy.modc.web.validation;
 
-import edu.monash.merc.eddy.modc.common.exceptions.MIllegalArgumentException;
+import edu.monash.merc.eddy.modc.common.exception.MIllegalArgumentException;
 import edu.monash.merc.eddy.modc.web.exception.MActionSupportException;
 import org.springframework.ui.Model;
 import org.springframework.web.context.WebApplicationContext;

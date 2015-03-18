@@ -29,7 +29,7 @@
 package edu.monash.merc.eddy.modc.web.controller;
 
 import edu.monash.merc.eddy.modc.common.config.SystemPropertyConts;
-import edu.monash.merc.eddy.modc.common.exceptions.MException;
+import edu.monash.merc.eddy.modc.common.exception.MException;
 import edu.monash.merc.eddy.modc.domain.Profile;
 import edu.monash.merc.eddy.modc.domain.User;
 import edu.monash.merc.eddy.modc.domain.UserType;
