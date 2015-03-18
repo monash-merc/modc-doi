@@ -31,7 +31,6 @@ package edu.monash.merc.eddy.modc.web.controller;
 import edu.monash.merc.eddy.modc.common.util.MDUtils;
 import edu.monash.merc.eddy.modc.common.util.RandomPwdGenerator;
 import edu.monash.merc.eddy.modc.domain.ServiceApp;
-import edu.monash.merc.eddy.modc.domain.ServiceAuthIP;
 import edu.monash.merc.eddy.modc.service.ServiceAppService;
 import edu.monash.merc.eddy.modc.sql.condition.SqlOrderBy;
 import edu.monash.merc.eddy.modc.sql.page.Pager;
@@ -46,7 +45,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 /**
  * Monash University eResearch Center

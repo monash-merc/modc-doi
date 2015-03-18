@@ -163,6 +163,6 @@
     <!-- define ActivateDoiService endpoint -->
     <sws:static-wsdl id="ActivateDoiService" location="classpath:/wsdl/ActivateDoiService.wsdl" />
 
-    <!-- Annotation Soap Fault Exception resolver -->
+    <!-- Annotation Soap Fault exception resolver -->
     <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"/>
 </beans>
