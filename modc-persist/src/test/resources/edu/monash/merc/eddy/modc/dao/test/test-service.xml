@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+
+    <!-- authorized apps -->
+    <authorized_app id="1" app_name="monash doi" authorized_app_id = "4fb08353943adf1f733c528c14293db711a5b03d" />
+    <authorized_app id="2" app_name="sychrotron doi" authorized_app_id = "087391e742ee920e4428aa6e4ca548b190138b89" />
     <!-- service -->
-    <service id="1" name="mercTest1" unique_id="atest1-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="2" name="mercTest2" unique_id="ctest2-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="3" name="mercTest3" unique_id="ftest3-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="4" name="mercTest4" unique_id="etest4-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="5" name="mercTest5" unique_id="otest5-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="6" name="mercTest6" unique_id="ftest6-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="7" name="mercTest7" unique_id="atest7-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="8" name="mercTest8" unique_id="ptest8-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="9" name="mercTest9" unique_id="mtest9-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="10" name="mercTest10" unique_id="ntest10-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="11" name="mercTest11" unique_id="dtest11-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="12" name="mercTest12" unique_id="dtest12-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="13" name="mercTest13" unique_id="stest13-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="14" name="mercTest14" unique_id="test14-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="15" name="mercTest15" unique_id="test15-01" service_type = "md" description="this is a description" auto_publish="true"/>
-    <service id="16" name="modcTest16" unique_id="modctest1-01" service_type = "md" description="this is a modc test16 service" auto_publish="true"/>
+    <service id="1" name="mercTest1" unique_id="atest1-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="2" name="mercTest2" unique_id="ctest2-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="3" name="mercTest3" unique_id="ftest3-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="4" name="mercTest4" unique_id="etest4-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="5" name="mercTest5" unique_id="otest5-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="6" name="mercTest6" unique_id="ftest6-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="7" name="mercTest7" unique_id="atest7-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="8" name="mercTest8" unique_id="ptest8-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="9" name="mercTest9" unique_id="mtest9-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="10" name="mercTest10" unique_id="ntest10-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="11" name="mercTest11" unique_id="dtest11-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="12" name="mercTest12" unique_id="dtest12-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="13" name="mercTest13" unique_id="stest13-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="14" name="mercTest14" unique_id="test14-01" service_type = "doi" description="this is a description" auto_publish="true" app_id ="1"/>
+    <service id="15" name="mercTest15" unique_id="test15-01" service_type = "md" description="this is a description" auto_publish="true" app_id ="2"/>
+    <service id="16" name="modcTest16" unique_id="modctest1-01" service_type = "md" description="this is a modc test16 service" auto_publish="true" app_id ="1"/>
 </dataset>

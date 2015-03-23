@@ -56,7 +56,7 @@
     <bean id="doiServiceHelper" class="edu.monash.merc.eddy.modc.doi.DOIServiceHelper" init-method="init" scope="singleton">
         <property name="doiServicePoint" value="${doi.service.point}"/>
         <property name="doiVersion" value="${doi.version}"/>
-        <property name="appId" value="${app.id}"/>
+        <property name="authorizedAppId" value="${default.authorized.app.id}"/>
         <property name="doiMintSuffix" value="${doi.mint.suffix}"/>
         <property name="doiUpdateSuffix" value="${doi.update.suffix}"/>
         <property name="doiActivateSuffix" value="${doi.activate.suffix}"/>

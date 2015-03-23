@@ -105,6 +105,10 @@ public class ServiceApp extends Domain {
     @Cascade({CascadeType.DELETE})
     private List<MCollection> collections;
 
+    @ManyToOne(targetEntity = AuthorizedApp.class)
+    @JoinColumn(name = "app_id", referencedColumnName = "id", nullable = false)
+    private AuthorizedApp authorizedApp;
+
     public long getId() {
         return id;
     }
@@ -191,5 +195,13 @@ public class ServiceApp extends Domain {
 
     public void setCollections(List<MCollection> collections) {
         this.collections = collections;
+    }
+
+    public AuthorizedApp getAuthorizedApp() {
+        return authorizedApp;
+    }
+
+    public void setAuthorizedApp(AuthorizedApp authorizedApp) {
+        this.authorizedApp = authorizedApp;
     }
 }

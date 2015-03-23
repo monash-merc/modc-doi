@@ -74,6 +74,21 @@
                     </div>
                 </div>
 
+                <!-- doi mint prefix  -->
+                <div class="input_row_section">
+                    <div class="input_row_left_part">DOI Minting Prefix</div>
+                    <div class="input_row_right_part">
+                        <@sf.select path="authorizedApp.id"   class="input_select_small">
+                            <@sf.option value="-1"> --- Select --- </@sf.option>
+                            <@sf.options items = authorizedApps itemValue = "id" itemLabel = "appName" />
+                        </@sf.select> <span class="red_span"> *</span>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div class="input_row_comments">
+                        <@s.message "webservice.app.doi.mint.prefix.comment" />
+                    </div>
+                </div>
+
                 <div class="input_row_section">
                     <div class="input_row_left_part">App Description:</div>
                     <div class="input_row_right_part">

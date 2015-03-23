@@ -19,5 +19,6 @@
         <mapping class="edu.monash.merc.eddy.modc.domain.Profile"/>
         <mapping class="edu.monash.merc.eddy.modc.domain.User"/>
         <mapping class="edu.monash.merc.eddy.modc.domain.ServiceApp"/>
+        <mapping class="edu.monash.merc.eddy.modc.domain.AuthorizedApp"/>
     </session-factory>
 </hibernate-configuration>

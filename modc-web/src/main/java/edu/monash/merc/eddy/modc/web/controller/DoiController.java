@@ -29,6 +29,7 @@
 package edu.monash.merc.eddy.modc.web.controller;
 
 import edu.monash.merc.eddy.modc.common.util.MDUtils;
+import edu.monash.merc.eddy.modc.doi.DOIServiceHelper;
 import edu.monash.merc.eddy.modc.doi.DoiResponse;
 import edu.monash.merc.eddy.modc.doi.HttpDOIService;
 import edu.monash.merc.eddy.modc.domain.doi.*;
@@ -61,6 +62,9 @@ public class DoiController extends BaseController {
 
     @Autowired
     private HttpDOIService doiService;
+
+    @Autowired
+    private DOIServiceHelper doiServiceHelper;
 
     @ModelAttribute("publicationYears")
     public Map<String, String> initYears() {
@@ -96,7 +100,8 @@ public class DoiController extends BaseController {
                 return "doi/doi_mint";
             }
 
-            DoiResponse doiResponse = doiService.mintDoi(doiResource);
+            String defaultAuthorizedAppId = doiServiceHelper.getAuthorizedAppId();
+            DoiResponse doiResponse = doiService.mintDoi(defaultAuthorizedAppId, doiResource);
             model.addAttribute("doiResponse", doiResponse);
             String responseType = doiResponse.getType();
             if (StringUtils.equalsIgnoreCase(responseType, "success")) {

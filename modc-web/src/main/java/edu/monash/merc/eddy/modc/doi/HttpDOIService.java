@@ -71,17 +71,17 @@ public class HttpDOIService {
 
     /**
      * Mint DOI service
-     *
+     * @param appId an authorized app id
      * @param doiResource A DoiResource object
      * @return a DoiResponse object
      */
-    public DoiResponse mintDoi(DoiResource doiResource) {
+    public DoiResponse mintDoi(String appId, DoiResource doiResource) {
         CloseableHttpClient client = null;
         try {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiMintSuffix = this.doiServiceHelper.getDoiMintSuffix();
-            String appId = this.doiServiceHelper.getAppId();
+           // String appId = this.doiServiceHelper.getAuthorizedAppId();
 
             String url = doiResource.getUrl();
 
@@ -144,16 +144,17 @@ public class HttpDOIService {
     /**
      * Update DOI Service
      *
+     * @param appId an authorized app id
      * @param doiResource A DoiResource object
      * @return a DoiResponse object
      */
-    public DoiResponse updateDoi(DoiResource doiResource) {
+    public DoiResponse updateDoi(String appId, DoiResource doiResource) {
         CloseableHttpClient client = null;
         try {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiUpdateSuffix = this.doiServiceHelper.getDoiUpdateSuffix();
-            String appId = this.doiServiceHelper.getAppId();
+            // String appId = this.doiServiceHelper.getAuthorizedAppId();
             String url = doiResource.getUrl();
             String doi = doiResource.getDoi();
             String update_service_url = doiServicePoint + "/" + doiVersion + "/" + doiUpdateSuffix + "/?app_id=" + appId;
@@ -210,16 +211,17 @@ public class HttpDOIService {
     /**
      * Deactivate DOI Service
      *
+     * @param appId an authorized app id
      * @param doi a DOI identifier
      * @return a DoiResponse object
      */
-    public DoiResponse deactivateDoi(String doi) {
+    public DoiResponse deactivateDoi(String appId, String doi) {
         CloseableHttpClient client = null;
         try {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiDeactivateSuffix = this.doiServiceHelper.getDoiDeactivateSuffix();
-            String appId = this.doiServiceHelper.getAppId();
+            // String appId = this.doiServiceHelper.getAuthorizedAppId();
 
             String deactivateDoiUrl = doiServicePoint + "/" + doiVersion + "/" + doiDeactivateSuffix + "/?app_id=" + appId + "&doi=" + doi;
 
@@ -256,17 +258,17 @@ public class HttpDOIService {
 
     /**
      * Activate a  deactivated DOI
-     *
+     * @param appId an authorized app id
      * @param doi a deactivated doi identifier
      * @return a DoiResponse object
      */
-    public DoiResponse activateDoi(String doi) {
+    public DoiResponse activateDoi(String appId, String doi) {
         CloseableHttpClient client = null;
         try {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiActivateSuffix = this.doiServiceHelper.getDoiActivateSuffix();
-            String appId = this.doiServiceHelper.getAppId();
+            // String appId = this.doiServiceHelper.getAuthorizedAppId();
 
             String activateDoiUrl = doiServicePoint + "/" + doiVersion + "/" + doiActivateSuffix + "/?app_id=" + appId + "&doi=" + doi;
 

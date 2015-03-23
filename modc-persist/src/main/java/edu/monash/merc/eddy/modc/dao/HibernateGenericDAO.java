@@ -159,6 +159,13 @@ public class HibernateGenericDAO<T> implements IRepository<T> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
+    public List<T> list(String hql) {
+        Query query = createQuery(hql, true);
+        return query.list();
+    }
+
+    @Override
     public boolean checkEntityExisted(String countHql, Map<String, Object> namedParams) {
         if (QueryHelper.isCountHQL(countHql)) {
             Query query = createQuery(countHql, true);

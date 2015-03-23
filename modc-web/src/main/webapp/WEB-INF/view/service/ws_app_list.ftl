@@ -57,8 +57,9 @@
                         <tr>
                             <th width="15%">Name</th>
                             <th width="10%">Service Type</th>
-                            <th width="25%">App ID</th>
-                            <th width="20%">App Password</th>
+                            <th width="10%">DOI Minting Prefix</th>
+                            <th width="20%">App ID</th>
+                            <th width="15%">App Password</th>
                             <th width="20%">Description</th>
                             <th width="10%"></th>
                         </tr>
@@ -71,6 +72,9 @@
                                 </td>
                                 <td>
                                 ${obj.serviceType}
+                                </td>
+                                <td>
+                                ${obj.authorizedApp.appName}
                                 </td>
                                 <td>
                                 ${obj.uniqueId}

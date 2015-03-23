@@ -30,7 +30,9 @@ package edu.monash.merc.eddy.modc.web.controller;
 
 import edu.monash.merc.eddy.modc.common.util.MDUtils;
 import edu.monash.merc.eddy.modc.common.util.RandomPwdGenerator;
+import edu.monash.merc.eddy.modc.domain.AuthorizedApp;
 import edu.monash.merc.eddy.modc.domain.ServiceApp;
+import edu.monash.merc.eddy.modc.service.AuthorizedAppService;
 import edu.monash.merc.eddy.modc.service.ServiceAppService;
 import edu.monash.merc.eddy.modc.sql.condition.SqlOrderBy;
 import edu.monash.merc.eddy.modc.sql.page.Pager;
@@ -43,8 +45,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  * Monash University eResearch Center
@@ -59,8 +60,17 @@ public class ServiceManageController extends BaseController {
     @Autowired
     private ServiceAppService serviceAppService;
 
+    @Autowired
+    private AuthorizedAppService authorizedAppService;
+
     public void setServiceAppService(ServiceAppService serviceAppService) {
         this.serviceAppService = serviceAppService;
+    }
+
+    @ModelAttribute("authorizedApps")
+    public void authorizedApps(Map<String, Object> map) {
+        List<AuthorizedApp> authorizedApps = authorizedAppService.listAuthorizedApps();
+        map.put("authorizedApps", authorizedApps);
     }
 
     @RequestMapping("/ws_app_list")
@@ -124,7 +134,10 @@ public class ServiceManageController extends BaseController {
             }
 
             Date createdDate = GregorianCalendar.getInstance().getTime();
+            long authorizedApp_Id = serviceApp.getAuthorizedApp().getId();
 
+            AuthorizedApp authorizedApp = this.authorizedAppService.getAuthorizedAppById(authorizedApp_Id);
+            serviceApp.setAuthorizedApp(authorizedApp);
             serviceApp.setCreatedDate(createdDate);
             serviceApp.setLastModified(createdDate);
             serviceApp.setPath("default");
@@ -208,8 +221,13 @@ public class ServiceManageController extends BaseController {
             foundServiceApp.setServiceType(serviceApp.getServiceType());
             foundServiceApp.setLastModified(GregorianCalendar.getInstance().getTime());
 
+            //get the authorized app id
+            long authorizedApp_Id = serviceApp.getAuthorizedApp().getId();
+
+            AuthorizedApp authorizedApp = this.authorizedAppService.getAuthorizedAppById(authorizedApp_Id);
+            foundServiceApp.setAuthorizedApp(authorizedApp);
             this.serviceAppService.updateServiceApp(foundServiceApp);
-            serviceApp = foundServiceApp;
+            model.addAttribute("serviceApp" , foundServiceApp);
             return "service/ws_app";
         } catch (Exception ex) {
             logger.error(ex);
@@ -297,6 +315,11 @@ public class ServiceManageController extends BaseController {
         String serviceType = serviceApp.getServiceType();
         if (StringUtils.isBlank(serviceType) || StringUtils.equalsIgnoreCase("none", serviceType)) {
             addActionError("webservice.ws.app.service.type.empty");
+        }
+
+        long doiMintPrefix = serviceApp.getAuthorizedApp().getId();
+        if (doiMintPrefix == -1) {
+            addActionError("webservice.ws.app.doi.mint.prefix.empty");
         }
 
         String desc = serviceApp.getDescription();

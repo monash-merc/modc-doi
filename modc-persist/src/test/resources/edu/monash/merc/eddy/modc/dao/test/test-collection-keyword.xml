@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+    <!-- authorized apps -->
+    <authorized_app id="1" app_name="monash doi" authorized_app_id = "4fb08353943adf1f733c528c14293db711a5b03d" />
+    <authorized_app id="2" app_name="sychrotron doi" authorized_app_id = "087391e742ee920e4428aa6e4ca548b190138b89" />
     <!-- service -->
-    <service id="1" name="mercTest1" unique_id="atest1-01" service_type = "doi" description="this is a  test1 service app description" auto_publish="true"/>
-    <service id="2" name="mercTest2" unique_id="ctest2-01" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="16" name="test-service_app16" unique_id="test1-16" service_type = "doi" description="this is a description" auto_publish="true"/>
-    <service id="20" name="dev-serviceapp20" unique_id="dev1-20" service_type = "doi" description="this is a description" auto_publish="true"/>
+    <service id="1" name="mercTest1" unique_id="atest1-01" service_type = "doi" description="this is a  test1 service app description" auto_publish="true" app_id ="1"/>
+    <service id="2" name="mercTest2" unique_id="ctest2-01" service_type = "doi" description="this is a description" auto_publish="true"  app_id ="1"/>
+    <service id="16" name="test-service_app16" unique_id="test1-16" service_type = "doi" description="this is a description" auto_publish="true"  app_id ="1"/>
+    <service id="20" name="dev-serviceapp20" unique_id="dev1-20" service_type = "doi" description="this is a description" auto_publish="true"  app_id ="1"/>
 
 
     <collection id="1" name="test-collection1" ref_key="101" description="this is test-collection description" service_id="1"/>

@@ -77,6 +77,14 @@ public interface IRepository<T> {
     List<T> list(String hql, Map<String, Object> namedParams);
 
     /**
+     * List all entities based on HQL query string.
+     *
+     * @param hql a hql query string
+     * @return a list of entities
+     */
+    List<T> list(String hql);
+
+    /**
      * Find an entity based on HQL sql string, the HQL string must be in a named parameters sytle.
      *
      * @param hql         A named parameters style HQL

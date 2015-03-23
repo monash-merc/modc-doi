@@ -31,7 +31,10 @@ package edu.monash.merc.eddy.modc.ws.endpoint;
 import edu.monash.merc.eddy.modc.common.util.MDUtils;
 import edu.monash.merc.eddy.modc.doi.DoiResponse;
 import edu.monash.merc.eddy.modc.doi.HttpDOIService;
+import edu.monash.merc.eddy.modc.domain.AuthorizedApp;
+import edu.monash.merc.eddy.modc.domain.ServiceApp;
 import edu.monash.merc.eddy.modc.domain.doi.*;
+import edu.monash.merc.eddy.modc.service.ServiceAppService;
 import edu.monash.merc.eddy.modc.ws.exception.DoiValidateException;
 import edu.monash.merc.eddy.modc.ws.model.*;
 import org.apache.commons.lang.StringUtils;
@@ -63,8 +66,8 @@ public class DOIServiceEndpoint {
     @Autowired
     private HttpDOIService doiService;
 
-//    @Autowired
-//    private ServiceAppService serviceAppService;
+    @Autowired
+    private ServiceAppService serviceAppService;
 
     @PayloadRoot(localPart = "MintDoiRequest", namespace = SERVICE_NS)
     @ResponsePayload
@@ -83,13 +86,15 @@ public class DOIServiceEndpoint {
         if (StringUtils.isBlank(serviceId)) {
             throw new DoiValidateException("The serviceId is invalid");
         }
-//
-//        //check the ws authentication
-//        ServiceApp serviceApp = serviceAppService.getServiceAppByUniqueIdAndIp(serviceId, ipAddress);
-//        if (serviceApp == null) {
-//            logger.error("Unauthorized ip address : " + ipAddress + " - id : " + serviceId);
-//            throw new DoiValidateException("This doi service is not authorized");
-//        }
+
+        //check the the ServiceApp and Authorized App
+        ServiceApp serviceApp = serviceAppService.getServiceAppByUniqueId(serviceId);
+        if (serviceApp == null) {
+            logger.error("Unauthorized service id : " + serviceId);
+            throw new DoiValidateException("This doi service is not authorized");
+        }
+        AuthorizedApp authorizedApp = serviceApp.getAuthorizedApp();
+        String appId = authorizedApp.getAppId();
 
         DResource dResource = request.getResource();
         String url = request.getUrl();
@@ -97,7 +102,7 @@ public class DOIServiceEndpoint {
         //convert to DoiResource
         DoiResource doiResource = convertToDoiResource(null, dResource, url, true);
         //call doi minting
-        DoiResponse response = doiService.mintDoi(doiResource);
+        DoiResponse response = doiService.mintDoi(appId, doiResource);
         //return MintDoiResponse
         return generateMintResponse(response, serviceId);
     }
@@ -110,6 +115,15 @@ public class DOIServiceEndpoint {
             throw new DoiValidateException("The serviceId is invalid");
         }
 
+        //check the the ServiceApp and Authorized App
+        ServiceApp serviceApp = serviceAppService.getServiceAppByUniqueId(serviceId);
+        if (serviceApp == null) {
+            logger.error("Unauthorized service id : " + serviceId);
+            throw new DoiValidateException("This doi service is not authorized");
+        }
+        AuthorizedApp authorizedApp = serviceApp.getAuthorizedApp();
+        String appId = authorizedApp.getAppId();
+
         //check the doi for update
         String doi = request.getDoi();
         DResource dResource = request.getResource();
@@ -117,7 +131,7 @@ public class DOIServiceEndpoint {
         //convert to DoiResource
         DoiResource doiResource = convertToDoiResource(doi, dResource, url, false);
         //call doi updating
-        DoiResponse response = doiService.updateDoi(doiResource);
+        DoiResponse response = doiService.updateDoi(appId, doiResource);
         //return UpdateDoiResponse
         return generateUpdateResponse(response, serviceId);
     }
@@ -129,10 +143,19 @@ public class DOIServiceEndpoint {
         if (StringUtils.isBlank(serviceId)) {
             throw new DoiValidateException("The serviceId is invalid");
         }
+        //check the the ServiceApp and Authorized App
+        ServiceApp serviceApp = serviceAppService.getServiceAppByUniqueId(serviceId);
+        if (serviceApp == null) {
+            logger.error("Unauthorized service id : " + serviceId);
+            throw new DoiValidateException("This doi service is not authorized");
+        }
+        AuthorizedApp authorizedApp = serviceApp.getAuthorizedApp();
+        String appId = authorizedApp.getAppId();
+
         //check the doi for update
         String doi = request.getDoi();
         //call doi activate
-        DoiResponse response = doiService.activateDoi(doi);
+        DoiResponse response = doiService.activateDoi(appId, doi);
         //return ActivateDoiResponse
         return generateActivateResponse(response, serviceId);
     }
@@ -145,10 +168,20 @@ public class DOIServiceEndpoint {
             throw new DoiValidateException("The serviceId is invalid");
         }
 
+        //check the the ServiceApp and Authorized App
+        ServiceApp serviceApp = serviceAppService.getServiceAppByUniqueId(serviceId);
+        if (serviceApp == null) {
+            logger.error("Unauthorized service id : " + serviceId);
+            throw new DoiValidateException("This doi service is not authorized");
+        }
+        AuthorizedApp authorizedApp = serviceApp.getAuthorizedApp();
+        String appId = authorizedApp.getAppId();
+
         //check the doi
         String doi = request.getDoi();
         //call doi activate
-        DoiResponse response = doiService.deactivateDoi(doi);
+        DoiResponse response = doiService.deactivateDoi(appId, doi);
+
         //return DeactivateDoiResponse
         return generateDeactivateResponse(response, serviceId);
     }

@@ -63,6 +63,14 @@
                     </div>
                 </div>
 
+                <!-- doi mint prefix -->
+                <div class="input_row_section">
+                    <div class="input_row_left_part">DOI Minting Prefix:</div>
+                    <div class="input_row_right_part">
+                        ${serviceApp.authorizedApp.appName}
+                    </div>
+                </div>
+
                 <div class="input_row_section">
                     <div class="input_row_left_part">App Description:</div>
                     <div class="input_row_right_part">

@@ -44,7 +44,7 @@ public class DOIServiceHelper {
 
     private String doiServicePoint;
 
-    private String appId;
+    private String authorizedAppId;
 
     private String doiVersion;
 
@@ -66,7 +66,7 @@ public class DOIServiceHelper {
 
     private static final String DOI_SERVICE_POINT = "https://services.ands.org.au/doi";
 
-    private static final String APP_ID = "4fb08353943adf1f733c528c14293db711a5b03d";
+    private static final String DEFAULT_APP_ID = "4fb08353943adf1f733c528c14293db711a5b03d";
 
     private static final String DOI_VERSION = "1.1";
 
@@ -143,8 +143,8 @@ public class DOIServiceHelper {
             doiDeactivateSuffix = DEACTIVATE_SUFFIX;
         }
 
-        if (StringUtils.isBlank(appId)) {
-            appId = APP_ID;
+        if (StringUtils.isBlank(authorizedAppId)) {
+            authorizedAppId = DEFAULT_APP_ID;
         }
 
         if (StringUtils.isBlank(doiTemplate)) {
@@ -174,12 +174,12 @@ public class DOIServiceHelper {
         this.doiServicePoint = doiServicePoint;
     }
 
-    public String getAppId() {
-        return appId;
+    public String getAuthorizedAppId() {
+        return authorizedAppId;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    public void setAuthorizedAppId(String authorizedAppId) {
+        this.authorizedAppId = authorizedAppId;
     }
 
     public String getDoiVersion() {
