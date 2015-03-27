@@ -81,7 +81,7 @@ public class HttpDOIService {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiMintSuffix = this.doiServiceHelper.getDoiMintSuffix();
-           // String appId = this.doiServiceHelper.getAuthorizedAppId();
+            //String appId = this.doiServiceHelper.getDefaultAuthorizedAppId();
 
             String url = doiResource.getUrl();
 
@@ -154,7 +154,7 @@ public class HttpDOIService {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiUpdateSuffix = this.doiServiceHelper.getDoiUpdateSuffix();
-            // String appId = this.doiServiceHelper.getAuthorizedAppId();
+            //String appId = this.doiServiceHelper.getDefaultAuthorizedAppId();
             String url = doiResource.getUrl();
             String doi = doiResource.getDoi();
             String update_service_url = doiServicePoint + "/" + doiVersion + "/" + doiUpdateSuffix + "/?app_id=" + appId;
@@ -221,7 +221,7 @@ public class HttpDOIService {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiDeactivateSuffix = this.doiServiceHelper.getDoiDeactivateSuffix();
-            // String appId = this.doiServiceHelper.getAuthorizedAppId();
+            //String appId = this.doiServiceHelper.getDefaultAuthorizedAppId();
 
             String deactivateDoiUrl = doiServicePoint + "/" + doiVersion + "/" + doiDeactivateSuffix + "/?app_id=" + appId + "&doi=" + doi;
 
@@ -268,7 +268,7 @@ public class HttpDOIService {
             String doiServicePoint = this.doiServiceHelper.getDoiServicePoint();
             String doiVersion = this.doiServiceHelper.getDoiVersion();
             String doiActivateSuffix = this.doiServiceHelper.getDoiActivateSuffix();
-            // String appId = this.doiServiceHelper.getAuthorizedAppId();
+            //String appId = this.doiServiceHelper.getDefaultAuthorizedAppId();
 
             String activateDoiUrl = doiServicePoint + "/" + doiVersion + "/" + doiActivateSuffix + "/?app_id=" + appId + "&doi=" + doi;
 

@@ -227,7 +227,7 @@ public class ServiceManageController extends BaseController {
             AuthorizedApp authorizedApp = this.authorizedAppService.getAuthorizedAppById(authorizedApp_Id);
             foundServiceApp.setAuthorizedApp(authorizedApp);
             this.serviceAppService.updateServiceApp(foundServiceApp);
-            model.addAttribute("serviceApp" , foundServiceApp);
+            model.addAttribute("serviceApp", foundServiceApp);
             return "service/ws_app";
         } catch (Exception ex) {
             logger.error(ex);
@@ -261,10 +261,14 @@ public class ServiceManageController extends BaseController {
         }
     }
 
-    @RequestMapping(value = "/gen_pwd", method = RequestMethod.GET)
-    public
+    /**
+     * generate the password return a json object
+     *
+     * @return an AppPassword json object
+     */
     @ResponseBody
-    AppPassword genPassword() {
+    @RequestMapping(value = "/gen_pwd", method = RequestMethod.GET)
+    public AppPassword genPassword() {
         String authCode = genAuthCode();
         return new AppPassword(authCode);
     }

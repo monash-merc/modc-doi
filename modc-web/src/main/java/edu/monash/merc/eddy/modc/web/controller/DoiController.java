@@ -100,7 +100,7 @@ public class DoiController extends BaseController {
                 return "doi/doi_mint";
             }
 
-            String defaultAuthorizedAppId = doiServiceHelper.getAuthorizedAppId();
+            String defaultAuthorizedAppId = doiServiceHelper.getDefaultAuthorizedAppId();
             DoiResponse doiResponse = doiService.mintDoi(defaultAuthorizedAppId, doiResource);
             model.addAttribute("doiResponse", doiResponse);
             String responseType = doiResponse.getType();

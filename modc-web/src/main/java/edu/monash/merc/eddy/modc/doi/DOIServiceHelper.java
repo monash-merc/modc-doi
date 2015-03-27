@@ -44,7 +44,7 @@ public class DOIServiceHelper {
 
     private String doiServicePoint;
 
-    private String authorizedAppId;
+    private String defaultAuthorizedAppId;
 
     private String doiVersion;
 
@@ -143,8 +143,8 @@ public class DOIServiceHelper {
             doiDeactivateSuffix = DEACTIVATE_SUFFIX;
         }
 
-        if (StringUtils.isBlank(authorizedAppId)) {
-            authorizedAppId = DEFAULT_APP_ID;
+        if (StringUtils.isBlank(defaultAuthorizedAppId)) {
+            defaultAuthorizedAppId = DEFAULT_APP_ID;
         }
 
         if (StringUtils.isBlank(doiTemplate)) {
@@ -174,12 +174,12 @@ public class DOIServiceHelper {
         this.doiServicePoint = doiServicePoint;
     }
 
-    public String getAuthorizedAppId() {
-        return authorizedAppId;
+    public String getDefaultAuthorizedAppId() {
+        return defaultAuthorizedAppId;
     }
 
-    public void setAuthorizedAppId(String authorizedAppId) {
-        this.authorizedAppId = authorizedAppId;
+    public void setDefaultAuthorizedAppId(String defaultAuthorizedAppId) {
+        this.defaultAuthorizedAppId = defaultAuthorizedAppId;
     }
 
     public String getDoiVersion() {
