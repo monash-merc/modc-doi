@@ -113,7 +113,7 @@ public class DoiController extends BaseController {
                 String message = doiResponse.getMessage();
                 String verbMessage = doiResponse.getVerboseMessage();
                 if (StringUtils.isNotBlank(verbMessage)) {
-                    addActionError("doi.mint.failure.verbmsg", null, verbMessage);
+                    addActionError("doi.mint.failure.msg", null, verbMessage);
                 }
                 if (StringUtils.isNotBlank(message)) {
                     addActionError("doi.mint.failure.msg", null, message);
