@@ -6,7 +6,7 @@
     <version>1.0</version>
     <packaging>pom</packaging>
 
-    <name>Eddy MODC web application</name>
+    <name>MODC web application</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

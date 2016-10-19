@@ -63,15 +63,17 @@ public class LdapServiceImpl implements LdapService {
         ldapProp.setProtocol(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_SECURITY_PROTOCOL));
         ldapProp.setAuthentication(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_AUTHENTICATION));
         ldapProp.setBaseDN(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_BASE_DN));
-        ldapProp.setBindBaseDnRequired(Boolean.valueOf(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_BIND_BASE_DN_REQUIRED)));
+        ldapProp.setBindDN(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_BIND_DN));
+        ldapProp.setPassword(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_BIND_PASSWORD));
         ldapProp.setAttUID(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_UID_ATTR_NAME));
         ldapProp.setAttMail(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_MAIL_ATTR_NAME));
         ldapProp.setAttGender(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_GENDER_ATTR_NAME));
         ldapProp.setAttCN(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_CN_ATTR_NAME));
         ldapProp.setAttSn(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_SN_ATTR_NAME));
         ldapProp.setAttGivenname(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_GIVENNAME_ATTR_NAME));
+        ldapProp.setAttDisplayName(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_DISPLAYNAME_ATTR_NAME));
         ldapProp.setAttPersonalTitle(systemPropertySettings.getPropValue(SystemPropertyConts.LDAP_PERSONAL_TITLE_ATTR_NAME));
-        this.ldapUtil.initEnv(ldapProp);
+        this.ldapUtil.initEnvironment(ldapProp);
     }
 
     public void setLdapUtil(LDAPUtil ldapUtil) {

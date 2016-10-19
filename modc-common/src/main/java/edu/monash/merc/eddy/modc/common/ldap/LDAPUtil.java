@@ -60,7 +60,9 @@ public class LDAPUtil {
 
     private String baseDn;
 
-    private boolean bindBaseDnRequired;
+    private String bindDn;
+
+    private String password;
 
     private String uidAttrName;
 
@@ -76,11 +78,13 @@ public class LDAPUtil {
 
     private String snAttrName;
 
+    private String displayNameAttName;
+
     private Hashtable<String, Object> environment;
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
-    private void prepareEnvironment() {
+    private void prepareLdapEnvironment() {
         environment = new Hashtable<String, Object>();
 
         if (ldapFactory != null && !"".equals(ldapFactory.trim())) {
@@ -95,13 +99,12 @@ public class LDAPUtil {
             throw new MSecurityException("no ldap server url specified");
         }
 
-        if (baseDn != null && !"".equals(baseDn.trim())) {
-            if (bindBaseDnRequired) {
-                environment.put(Context.SECURITY_PRINCIPAL, baseDn);
-            }
-        } else {
-            throw new MSecurityException("no ldap server base dn specified");
+        if (bindDn != null && !"".equals(bindDn.trim())) {
+            environment.put(Context.SECURITY_PRINCIPAL, bindDn);
         }
+
+        if (password != null && !"".equals(password.trim()))
+            environment.put(Context.SECURITY_CREDENTIALS, password);
 
         if (protocol != null && !"".equals(protocol.trim())) {
             environment.put(Context.SECURITY_PROTOCOL, protocol);
@@ -112,30 +115,15 @@ public class LDAPUtil {
         }
     }
 
-    public void initEnv(String ldapFactory, String serverUrl, String protocol, String authentication, String baseDn, boolean bindBaseDnRequired, String uidAttrName,
-                        String mailAttrName, String cnAttrName, String genderAttrName, String personalTitleAttrName, String snAttrName, String givennameAttrName) {
-        this.ldapFactory = ldapFactory;
-        this.serverUrl = serverUrl;
-        this.protocol = protocol;
-        this.authentication = authentication;
-        this.baseDn = baseDn;
-        this.bindBaseDnRequired = bindBaseDnRequired;
-        this.uidAttrName = uidAttrName;
-        this.mailAttrName = mailAttrName;
-        this.cnAttrName = cnAttrName;
-        this.genderAttrName = genderAttrName;
-        this.personalTitleAttrName = personalTitleAttrName;
-        this.snAttrName = snAttrName;
-        this.givennameAttrName = givennameAttrName;
-    }
 
-    public void initEnv(LdapProperty ldapProp) {
+    public void initEnvironment(LdapProperty ldapProp) {
         this.ldapFactory = ldapProp.getLdapFactory();
         this.serverUrl = ldapProp.getLdapServer();
         this.protocol = ldapProp.getProtocol();
         this.authentication = ldapProp.getAuthentication();
         this.baseDn = ldapProp.getBaseDN();
-        this.bindBaseDnRequired = ldapProp.isBindBaseDnRequired();
+        this.bindDn = ldapProp.getBindDN();
+        this.password = ldapProp.getPassword();
         this.uidAttrName = ldapProp.getAttUID();
         this.mailAttrName = ldapProp.getAttMail();
         this.cnAttrName = ldapProp.getAttCN();
@@ -143,11 +131,37 @@ public class LDAPUtil {
         this.personalTitleAttrName = ldapProp.getAttPersonalTitle();
         this.snAttrName = ldapProp.getAttSn();
         this.givennameAttrName = ldapProp.getAttGivenname();
+        this.displayNameAttName = ldapProp.getAttDisplayName();
+    }
+
+
+    public boolean login(String uid, String password) {
+        prepareLdapEnvironment();
+        StringBuffer principal = new StringBuffer(256);
+        principal.append("uid=").append(uid).append(",").append("ou=users").append(",").append(baseDn);
+        environment.put(Context.SECURITY_PRINCIPAL, principal.toString());
+        environment.put(Context.SECURITY_CREDENTIALS, password);
+        DirContext dir = null;
+        try {
+            dir = new InitialDirContext(environment);
+            return true;
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return false;
+        } finally {
+            if (dir != null) {
+                try {
+                    dir.close();
+                } catch (NamingException e) {
+                    // ignore whatever error
+                }
+            }
+        }
     }
 
     public String findUserDn(String uid) {
         // prepare the ldap connection environment variables.
-        prepareEnvironment();
+        prepareLdapEnvironment();
         // connect to ldap to find user dn, the user dn should not contain the base dn part.
         String findDn = null;
         DirContext dir = null;
@@ -179,19 +193,20 @@ public class LDAPUtil {
         return findDn;
     }
 
-    public LdapUser findUserInfo(String mailorcn) {
+    private LdapUser searchLdapUser(String seachfor, boolean searchByAuthcateId) {
         // prepare the ldap connection environment variables.
-        prepareEnvironment();
+        prepareLdapEnvironment();
         DirContext dir = null;
         try {
             dir = new InitialDirContext(environment);
             SearchControls ctls = new SearchControls();
             ctls.setSearchScope(SearchControls.SUBTREE_SCOPE);
-            String filter = cnAttrName + "=" + mailorcn;
-            if (StringUtils.contains(mailorcn, "@")) {
-                filter = mailAttrName + "=" + mailorcn;
+            String filter = cnAttrName + "=" + seachfor;
+            if (searchByAuthcateId) {
+                filter = "uid=" + seachfor;
+            } else if (StringUtils.contains(seachfor, "@")) {
+                filter = mailAttrName + "=" + seachfor;
             }
-
             NamingEnumeration<SearchResult> answer = dir.search(baseDn, filter, ctls);
             while (answer.hasMore()) {
                 SearchResult st = (SearchResult) answer.next();
@@ -204,7 +219,7 @@ public class LDAPUtil {
                     usr.setMail((String) mailAtt.get());
                 }
 
-                Attribute cnAtt = atts.get(cnAttrName);
+                Attribute cnAtt = atts.get(displayNameAttName);
                 if (cnAtt != null) {
                     usr.setDisplayName((String) cnAtt.get());
                 }
@@ -250,72 +265,21 @@ public class LDAPUtil {
         return null;
     }
 
-    public boolean login(String uid, String password) {
-        // connect to ldap to find user dn, the user dn should not contain the base dn part.
-        String userDn = findUserDn(uid);
-        StringBuffer principal = new StringBuffer(256);
-        principal.append(userDn).append(",").append(baseDn);
-        environment.put(Context.SECURITY_PRINCIPAL, principal.toString());
-        environment.put(Context.SECURITY_CREDENTIALS, password);
-        DirContext dir = null;
-        try {
-            dir = new InitialDirContext(environment);
-            return true;
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-            return false;
-        } finally {
-            if (dir != null) {
-                try {
-                    dir.close();
-                } catch (NamingException e) {
-                    // close jndi context
-                }
-            }
-        }
+    public LdapUser findUserInfo(String mailorcn) {
+        return searchLdapUser(mailorcn, false);
     }
 
     public LdapUser validateLdapUser(String uid, String password) {
-        // connect to ldap to find user dn, the user dn should not contain the base dn part.
-        String userDn = findUserDn(uid);
-        StringBuffer principal = new StringBuffer(256);
-        principal.append(userDn).append(",").append(baseDn);
-        environment.put(Context.SECURITY_PRINCIPAL, principal.toString());
-        environment.put(Context.SECURITY_CREDENTIALS, password);
-        DirContext dir = null;
-        try {
-            dir = new InitialDirContext(environment);
-            String lookupPrincipal = userDn + "," + baseDn;
-
-            Attributes atts = dir.getAttributes(lookupPrincipal);
-            Attribute mailAtt = atts.get(mailAttrName);
-            String mail = mailAtt != null ? (String) mailAtt.get() : "none";
-
-            Attribute cnAtt = atts.get(cnAttrName);
-
-            String displayName = cnAtt != null ? (String) cnAtt.get() : "none";
-
-            Attribute genderNameAtt = atts.get(genderAttrName);
-            String gender = genderNameAtt != null ? (String) genderNameAtt.get() : "male";
-
-            LdapUser usr = new LdapUser();
-            usr.setUid(uid);
-            usr.setDisplayName(displayName);
-            usr.setGender(gender);
-            usr.setMail(mail);
-            return usr;
-        } catch (NamingException e) {
-            logger.error(e.getMessage());
-            return null;
-        } finally {
-            if (dir != null) {
-                try {
-                    dir.close();
-                } catch (NamingException e) {
-                    // close jndi context
-                }
+        LdapUser usr = searchLdapUser(uid, true);
+        if (usr != null) {
+            boolean loginSucceed = login(uid, password);
+            if (loginSucceed) {
+                return usr;
+            } else {
+                return null;
             }
         }
+        return null;
     }
 
     public String getLdapFactory() {
@@ -358,12 +322,20 @@ public class LDAPUtil {
         this.baseDn = baseDn;
     }
 
-    public boolean isBindBaseDnRequired() {
-        return bindBaseDnRequired;
+    public String getBindDn() {
+        return bindDn;
     }
 
-    public void setBindBaseDnRequired(boolean bindBaseDnRequired) {
-        this.bindBaseDnRequired = bindBaseDnRequired;
+    public void setBindDn(String bindDn) {
+        this.bindDn = bindDn;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUidAttrName() {
@@ -422,6 +394,14 @@ public class LDAPUtil {
         this.givennameAttrName = givennameAttrName;
     }
 
+    public String getDisplayNameAttName() {
+        return displayNameAttName;
+    }
+
+    public void setDisplayNameAttName(String displayNameAttName) {
+        this.displayNameAttName = displayNameAttName;
+    }
+
     public Logger getLogger() {
         return logger;
     }
@@ -441,35 +421,40 @@ public class LDAPUtil {
     public static void main(String[] args) {
 
         String factory = "com.sun.jndi.ldap.LdapCtxFactory";
-        String baseDn = "o=Monash University, c=AU";
-        boolean bindBaseDnRequired = false;
-        String serverUrl = "ldap://directory.monash.edu.au:389";
+        String baseDn = "dc=monash,dc=edu";
+        String serverUrl = "ldaps://lds.monash.edu.au:636";
+        String bindDn = "uid=service_account,ou=users,dc=monash,dc=edu";
+        String password = "service_account_password";
         String protocol = "";
         String authentication = "";
         String uidAttrName = "uid";
         String mailAttrName = "mail";
         String cnAttrName = "cn";
         String genderAttrName = "gender";
-        String personalTitleAttrName = "personaltitle";
-
+        String personalTitleAttrName = "personalTitle";
+        String displayNameAttName = "displayName";
         String givennameAttrName = "givenname";
 
         String snAttrName = "sn";
         LDAPUtil ldap = new LDAPUtil();
+        LdapProperty ldapProperty = new LdapProperty();
 
-        ldap.setLdapFactory(factory);
-        ldap.setServerUrl(serverUrl);
-        ldap.setBaseDn(baseDn);
-        ldap.setBindBaseDnRequired(bindBaseDnRequired);
-        ldap.setProtocol(protocol);
-        ldap.setAuthentication(authentication);
-        ldap.setUidAttrName(uidAttrName);
-        ldap.setMailAttrName(mailAttrName);
-        ldap.setCnAttrName(cnAttrName);
-        ldap.setGenderAttrName(genderAttrName);
-        ldap.setPersonalTitleAttrName(personalTitleAttrName);
-        ldap.setGivennameAttrName(givennameAttrName);
-        ldap.setSnAttrName(snAttrName);
+        ldapProperty.setLdapFactory(factory);
+        ldapProperty.setLdapServer(serverUrl);
+        ldapProperty.setBaseDN(baseDn);
+        ldapProperty.setBindDN(bindDn);
+        ldapProperty.setPassword(password);
+        ldapProperty.setProtocol(protocol);
+        ldapProperty.setAuthentication(authentication);
+        ldapProperty.setAttUID(uidAttrName);
+        ldapProperty.setAttMail(mailAttrName);
+        ldapProperty.setAttCN(cnAttrName);
+        ldapProperty.setAttGender(genderAttrName);
+        ldapProperty.setAttPersonalTitle(personalTitleAttrName);
+        ldapProperty.setAttGivenname(givennameAttrName);
+        ldapProperty.setAttSn(snAttrName);
+        ldapProperty.setAttDisplayName(displayNameAttName);
+        ldap.initEnvironment(ldapProperty);
 
         String usrdn = ldap.findUserDn("xiyu");
         System.out.println("user dn: " + usrdn);
@@ -484,9 +469,10 @@ public class LDAPUtil {
             System.out.println("gender : " + luser.getGender());
             System.out.println("mail: " + luser.getMail());
         } else {
-            System.out.println("ldap user is not found");
+            System.out.println("ldap user info is not found");
         }
-        LdapUser usr = ldap.validateLdapUser("xiyu", "aadsa!");
+
+        LdapUser usr = ldap.validateLdapUser("xiyu", "xxxx");
         if (usr == null) {
             System.out.println("user is not found");
         } else {
