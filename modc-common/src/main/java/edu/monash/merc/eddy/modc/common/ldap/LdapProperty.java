@@ -43,7 +43,9 @@ public class LdapProperty implements Serializable {
 
     private String baseDN;
 
-    private boolean bindBaseDnRequired;
+    private String bindDN;
+
+    private String password;
 
     private String attUID;
 
@@ -58,6 +60,8 @@ public class LdapProperty implements Serializable {
     private String attSn;
 
     private String attGivenname;
+
+    private String attDisplayName;
 
     public boolean isLdapSupported() {
         return ldapSupported;
@@ -107,12 +111,20 @@ public class LdapProperty implements Serializable {
         this.baseDN = baseDN;
     }
 
-    public boolean isBindBaseDnRequired() {
-        return bindBaseDnRequired;
+    public String getBindDN() {
+        return bindDN;
     }
 
-    public void setBindBaseDnRequired(boolean bindBaseDnRequired) {
-        this.bindBaseDnRequired = bindBaseDnRequired;
+    public void setBindDN(String bindDN) {
+        this.bindDN = bindDN;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getAttUID() {
@@ -169,5 +181,13 @@ public class LdapProperty implements Serializable {
 
     public void setAttGivenname(String attGivenname) {
         this.attGivenname = attGivenname;
+    }
+
+    public String getAttDisplayName() {
+        return attDisplayName;
+    }
+
+    public void setAttDisplayName(String attDisplayName) {
+        this.attDisplayName = attDisplayName;
     }
 }

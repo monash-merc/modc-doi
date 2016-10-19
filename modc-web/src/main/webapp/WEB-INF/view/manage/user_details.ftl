@@ -11,7 +11,8 @@
 <div class="page_title">
     <div class="page_title_inline">&nbsp;</div>
     <div class="page_title_inline"><img src="${base}/images/link_arrow.png" border="0"/></div>
-    <div class="page_title_inline"><a href="${base}/manage/list_users.htm"><@s.message "user.all.users.action.title" /></a></div>
+    <div class="page_title_inline"><a
+            href="${base}/manage/list_users.htm"><@s.message "user.all.users.action.title" /></a></div>
     <div class="page_title_inline"><img src="${base}/images/link_arrow.png" border="0"/></div>
     <div class="page_title_inline"><@s.message "user.show.details.action.title" /></div>
 </div>
@@ -44,7 +45,11 @@
                                 Gender:
                             </div>
                             <div class="input_field_value_section">
+                            <#if userBean.profile.gender??>
                             ${userBean.profile.gender}
+                            <#else>
+                                &nbsp;
+                            </#if>
                             </div>
                         </div>
                         <div class="input_field_row">

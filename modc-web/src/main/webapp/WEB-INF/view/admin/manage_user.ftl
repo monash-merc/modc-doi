@@ -44,7 +44,11 @@
                                 Gender:
                             </div>
                             <div class="input_field_value_section">
+                            <#if userBean.profile.gender??>
                             ${userBean.profile.gender}
+                            <#else>
+                                &nbsp;
+                            </#if>
                             </div>
                         </div>
                         <div class="input_field_row">

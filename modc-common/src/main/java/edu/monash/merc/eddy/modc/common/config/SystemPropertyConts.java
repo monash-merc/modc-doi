@@ -25,7 +25,9 @@ public interface SystemPropertyConts {
 
     static String LDAP_BASE_DN = "ldap.base.dn";
 
-    static String LDAP_BIND_BASE_DN_REQUIRED = "ldap.bind.base.dn.required";
+    static String LDAP_BIND_DN = "ldap.bind.dn";
+
+    static String LDAP_BIND_PASSWORD = "ldap.bind.password";
 
     static String LDAP_SECURITY_PROTOCOL = "ldap.security.protocol";
 
@@ -42,6 +44,8 @@ public interface SystemPropertyConts {
     static String LDAP_SN_ATTR_NAME = "ldap.sn.attrName";
 
     static String LDAP_GIVENNAME_ATTR_NAME = "ldap.givenname.attrName";
+
+    static String LDAP_DISPLAYNAME_ATTR_NAME = "ldap.displayname.attrName";
 
     static String LDAP_PERSONAL_TITLE_ATTR_NAME = "ldap.personaltitle.attrName";
 }
