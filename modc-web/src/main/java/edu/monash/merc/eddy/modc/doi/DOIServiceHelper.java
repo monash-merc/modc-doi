@@ -32,6 +32,7 @@ import edu.monash.merc.eddy.modc.http.HttpConnectionAliveStrategy;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.LaxRedirectStrategy;
 import org.apache.log4j.Logger;
 
 /**
@@ -116,6 +117,8 @@ public class DOIServiceHelper {
         connectionAliveStrategy.setKeepAliveInSeconds(keepAliveInSeconds);
 
         httpClientBuilder.setKeepAliveStrategy(connectionAliveStrategy);
+        // set redirect strategy
+        httpClientBuilder.setRedirectStrategy(new LaxRedirectStrategy());
 
         logger.info("===== Finished to init HttpDOIClient");
 

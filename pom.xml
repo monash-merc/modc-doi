@@ -123,6 +123,7 @@
         <!-- dbunit -->
         <dbunit.version>2.5.0</dbunit.version>
 
+        <bouncycastle.version>1.55</bouncycastle.version>
     </properties>
 
     <!-- Project Sub-Modules -->
@@ -478,6 +479,12 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${bouncycastle.version}</version>
             </dependency>
 
             <!-- jhlabs image -->
