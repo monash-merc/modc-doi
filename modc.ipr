@@ -49,7 +49,7 @@
             <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.3.4" />
             <element id="library" level="project" name="Maven: org.dbunit:dbunit:2.5.0" />
             <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
-            <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.1.1.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.1.5.RELEASE" />
             <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
             <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
@@ -1003,15 +1003,15 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework.security:spring-security-core:4.1.1.RELEASE">
+    <library name="Maven: org.springframework.security:spring-security-core:4.1.5.RELEASE">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.1.RELEASE/spring-security-core-4.1.1.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.5.RELEASE/spring-security-core-4.1.5.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.1.RELEASE/spring-security-core-4.1.1.RELEASE-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.5.RELEASE/spring-security-core-4.1.5.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.1.RELEASE/spring-security-core-4.1.1.RELEASE-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.5.RELEASE/spring-security-core-4.1.5.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework.ws:spring-ws-core:2.2.0.RELEASE">
