@@ -43,10 +43,9 @@
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-c3p0:4.3.6.Final" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-ehcache:4.3.6.Final" />
             <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.9" />
-            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
             <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.3-1101-jdbc4" />
-            <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.2" />
-            <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.11" />
+            <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.3" />
+            <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.15" />
             <element id="library" level="project" name="Maven: org.dbunit:dbunit:2.5.0" />
             <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.1.5.RELEASE" />
@@ -67,15 +66,37 @@
             <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.20.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.3.20.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.20.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework.ws:spring-ws-core:2.2.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework.ws:spring-ws-security:2.2.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.ws:spring-ws-core:2.4.4.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.ws:spring-ws-security:2.4.4.RELEASE" />
+            <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache:2.8.9" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.6" />
+            <element id="library" level="project" name="Maven: org.apache.wss4j:wss4j-ws-security-dom:2.1.11" />
+            <element id="library" level="project" name="Maven: org.apache.wss4j:wss4j-ws-security-common:2.1.11" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-saml-impl:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-profile-api:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-core:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-saml-api:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-xmlsec-api:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-soap-api:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-security-impl:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-security-api:3.1.1" />
+            <element id="library" level="project" name="Maven: org.cryptacular:cryptacular:1.0" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-xmlsec-impl:3.1.1" />
+            <element id="library" level="project" name="Maven: net.shibboleth.utilities:java-support:7.1.1" />
+            <element id="library" level="project" name="Maven: com.google.guava:guava:18.0" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-xacml-impl:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-xacml-api:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-xacml-saml-impl:3.1.1" />
+            <element id="library" level="project" name="Maven: org.opensaml:opensaml-xacml-saml-api:3.1.1" />
+            <element id="library" level="project" name="Maven: org.jasypt:jasypt:1.9.2" />
+            <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.7.1" />
             <element id="library" level="project" name="Maven: org.apache.ws.security:wss4j:1.6.17" />
             <element id="library" level="project" name="Maven: org.apache.santuario:xmlsec:1.5.7" />
             <element id="library" level="project" name="Maven: org.opensaml:opensaml:2.5.1-1" />
             <element id="library" level="project" name="Maven: org.opensaml:openws:1.4.2-1" />
             <element id="library" level="project" name="Maven: org.opensaml:xmltooling:1.3.2-1" />
             <element id="library" level="project" name="Maven: joda-time:joda-time:1.6.2" />
-            <element id="library" level="project" name="Maven: org.springframework.ws:spring-xml:2.2.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.ws:spring-xml:2.4.4.RELEASE" />
             <element id="library" level="project" name="Maven: wsdl4j:wsdl4j:1.6.3" />
             <element id="library" level="project" name="Maven: org.apache.ws.xmlschema:xmlschema-core:2.1.0" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.1.2.Final" />
@@ -409,6 +430,17 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/github/springtestdbunit/spring-test-dbunit/1.1.0/spring-test-dbunit-1.1.0-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: com.google.guava:guava:18.0">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/google/guava/guava/18.0/guava-18.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/google/guava/guava/18.0/guava-18.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/google/guava/guava/18.0/guava-18.0-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: com.jhlabs:imaging:01012005">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/jhlabs/imaging/01012005/imaging-01012005.jar!/" />
@@ -420,26 +452,26 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/jhlabs/imaging/01012005/imaging-01012005-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.mchange:c3p0:0.9.5.2">
+    <library name="Maven: com.mchange:c3p0:0.9.5.3">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.2/c3p0-0.9.5.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.3/c3p0-0.9.5.3.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.2/c3p0-0.9.5.2-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.3/c3p0-0.9.5.3-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.2/c3p0-0.9.5.2-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.3/c3p0-0.9.5.3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.mchange:mchange-commons-java:0.2.11">
+    <library name="Maven: com.mchange:mchange-commons-java:0.2.15">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/mchange-commons-java/0.2.15/mchange-commons-java-0.2.15.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/mchange-commons-java/0.2.15/mchange-commons-java-0.2.15-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/mchange-commons-java/0.2.15/mchange-commons-java-0.2.15-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.sun.mail:javax.mail:1.5.2">
@@ -651,6 +683,39 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/net/sf/ehcache/ehcache-core/2.6.9/ehcache-core-2.6.9-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: net.sf.ehcache:ehcache:2.8.9">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/net/sf/ehcache/ehcache/2.8.9/ehcache-2.8.9.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/net/sf/ehcache/ehcache/2.8.9/ehcache-2.8.9-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/net/sf/ehcache/ehcache/2.8.9/ehcache-2.8.9-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: net.shibboleth.utilities:java-support:7.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/net/shibboleth/utilities/java-support/7.1.1/java-support-7.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/net/shibboleth/utilities/java-support/7.1.1/java-support-7.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/net/shibboleth/utilities/java-support/7.1.1/java-support-7.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.7.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.apache.httpcomponents:httpclient:4.3.6">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.jar!/" />
@@ -706,6 +771,28 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/ws/xmlschema/xmlschema-core/2.1.0/xmlschema-core-2.1.0-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.apache.wss4j:wss4j-ws-security-common:2.1.11">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/wss4j/wss4j-ws-security-common/2.1.11/wss4j-ws-security-common-2.1.11.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/wss4j/wss4j-ws-security-common/2.1.11/wss4j-ws-security-common-2.1.11-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/wss4j/wss4j-ws-security-common/2.1.11/wss4j-ws-security-common-2.1.11-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.wss4j:wss4j-ws-security-dom:2.1.11">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/wss4j/wss4j-ws-security-dom/2.1.11/wss4j-ws-security-dom-2.1.11.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/wss4j/wss4j-ws-security-dom/2.1.11/wss4j-ws-security-dom-2.1.11-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/apache/wss4j/wss4j-ws-security-dom/2.1.11/wss4j-ws-security-dom-2.1.11-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.aspectj:aspectjrt:1.8.1">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/aspectj/aspectjrt/1.8.1/aspectjrt-1.8.1.jar!/" />
@@ -759,6 +846,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.cryptacular:cryptacular:1.0">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/cryptacular/cryptacular/1.0/cryptacular-1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/cryptacular/cryptacular/1.0/cryptacular-1.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/cryptacular/cryptacular/1.0/cryptacular-1.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.dbunit:dbunit:2.5.0">
@@ -882,6 +980,17 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/hibernate/hibernate-validator/5.1.2.Final/hibernate-validator-5.1.2.Final-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.jasypt:jasypt:1.9.2">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/jasypt/jasypt/1.9.2/jasypt-1.9.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/jasypt/jasypt/1.9.2/jasypt-1.9.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/jasypt/jasypt/1.9.2/jasypt-1.9.2-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.javassist:javassist:3.18.1-GA">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar!/" />
@@ -948,6 +1057,149 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/jdom/jdom/1.1.3/jdom-1.1.3-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.opensaml:opensaml-core:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-core/3.1.1/opensaml-core-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-core/3.1.1/opensaml-core-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-core/3.1.1/opensaml-core-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-profile-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-profile-api/3.1.1/opensaml-profile-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-profile-api/3.1.1/opensaml-profile-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-profile-api/3.1.1/opensaml-profile-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-saml-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-saml-api/3.1.1/opensaml-saml-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-saml-api/3.1.1/opensaml-saml-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-saml-api/3.1.1/opensaml-saml-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-saml-impl:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-saml-impl/3.1.1/opensaml-saml-impl-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-saml-impl/3.1.1/opensaml-saml-impl-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-saml-impl/3.1.1/opensaml-saml-impl-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-security-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-security-api/3.1.1/opensaml-security-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-security-api/3.1.1/opensaml-security-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-security-api/3.1.1/opensaml-security-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-security-impl:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-security-impl/3.1.1/opensaml-security-impl-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-security-impl/3.1.1/opensaml-security-impl-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-security-impl/3.1.1/opensaml-security-impl-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-soap-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-soap-api/3.1.1/opensaml-soap-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-soap-api/3.1.1/opensaml-soap-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-soap-api/3.1.1/opensaml-soap-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-xacml-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-api/3.1.1/opensaml-xacml-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-api/3.1.1/opensaml-xacml-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-api/3.1.1/opensaml-xacml-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-xacml-impl:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-impl/3.1.1/opensaml-xacml-impl-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-impl/3.1.1/opensaml-xacml-impl-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-impl/3.1.1/opensaml-xacml-impl-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-xacml-saml-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-saml-api/3.1.1/opensaml-xacml-saml-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-saml-api/3.1.1/opensaml-xacml-saml-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-saml-api/3.1.1/opensaml-xacml-saml-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-xacml-saml-impl:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-saml-impl/3.1.1/opensaml-xacml-saml-impl-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-saml-impl/3.1.1/opensaml-xacml-saml-impl-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xacml-saml-impl/3.1.1/opensaml-xacml-saml-impl-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-xmlsec-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xmlsec-api/3.1.1/opensaml-xmlsec-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xmlsec-api/3.1.1/opensaml-xmlsec-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xmlsec-api/3.1.1/opensaml-xmlsec-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.opensaml:opensaml-xmlsec-impl:3.1.1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xmlsec-impl/3.1.1/opensaml-xmlsec-impl-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xmlsec-impl/3.1.1/opensaml-xmlsec-impl-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml-xmlsec-impl/3.1.1/opensaml-xmlsec-impl-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.opensaml:opensaml:2.5.1-1">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/opensaml/opensaml/2.5.1-1/opensaml-2.5.1-1.jar!/" />
@@ -1003,6 +1255,17 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.slf4j:slf4j-api:1.6.6">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.springframework.security:spring-security-core:4.1.5.RELEASE">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.5.RELEASE/spring-security-core-4.1.5.RELEASE.jar!/" />
@@ -1014,37 +1277,37 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/security/spring-security-core/4.1.5.RELEASE/spring-security-core-4.1.5.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework.ws:spring-ws-core:2.2.0.RELEASE">
+    <library name="Maven: org.springframework.ws:spring-ws-core:2.4.4.RELEASE">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-core/2.2.0.RELEASE/spring-ws-core-2.2.0.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-core/2.4.4.RELEASE/spring-ws-core-2.4.4.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-core/2.2.0.RELEASE/spring-ws-core-2.2.0.RELEASE-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-core/2.4.4.RELEASE/spring-ws-core-2.4.4.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-core/2.2.0.RELEASE/spring-ws-core-2.2.0.RELEASE-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-core/2.4.4.RELEASE/spring-ws-core-2.4.4.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework.ws:spring-ws-security:2.2.0.RELEASE">
+    <library name="Maven: org.springframework.ws:spring-ws-security:2.4.4.RELEASE">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-security/2.2.0.RELEASE/spring-ws-security-2.2.0.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-security/2.4.4.RELEASE/spring-ws-security-2.4.4.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-security/2.2.0.RELEASE/spring-ws-security-2.2.0.RELEASE-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-security/2.4.4.RELEASE/spring-ws-security-2.4.4.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-security/2.2.0.RELEASE/spring-ws-security-2.2.0.RELEASE-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-ws-security/2.4.4.RELEASE/spring-ws-security-2.4.4.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework.ws:spring-xml:2.2.0.RELEASE">
+    <library name="Maven: org.springframework.ws:spring-xml:2.4.4.RELEASE">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-xml/2.2.0.RELEASE/spring-xml-2.2.0.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-xml/2.4.4.RELEASE/spring-xml-2.4.4.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-xml/2.2.0.RELEASE/spring-xml-2.2.0.RELEASE-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-xml/2.4.4.RELEASE/spring-xml-2.4.4.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-xml/2.2.0.RELEASE/spring-xml-2.2.0.RELEASE-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/org/springframework/ws/spring-xml/2.4.4.RELEASE/spring-xml-2.4.4.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework:spring-aop:4.3.20.RELEASE">
