@@ -56,7 +56,7 @@
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-ehcache:4.3.6.Final" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.6.9" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.3-1101-jdbc4" level="project" />
-    <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.5.3" level="project" />
+    <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.5.4" level="project" />
     <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.15" level="project" />
     <orderEntry type="library" name="Maven: org.dbunit:dbunit:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
@@ -124,9 +124,9 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.28" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.11" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.11" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.11" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.9" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.3.6" level="project" />

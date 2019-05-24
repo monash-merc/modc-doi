@@ -44,7 +44,7 @@
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-ehcache:4.3.6.Final" />
             <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.9" />
             <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.3-1101-jdbc4" />
-            <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.3" />
+            <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.4" />
             <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.15" />
             <element id="library" level="project" name="Maven: org.dbunit:dbunit:2.5.0" />
             <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
@@ -112,9 +112,9 @@
             <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.1" />
             <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.1" />
             <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.28" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.11" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.11" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.11" />
+            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9" />
+            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9" />
+            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.9" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
             <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.3.6" />
@@ -375,37 +375,37 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.11">
+    <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.9">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.8.11/jackson-annotations-2.8.11.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.8.11/jackson-annotations-2.8.11-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.8.11/jackson-annotations-2.8.11-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.11">
+    <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.8.11/jackson-core-2.8.11.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.8.11/jackson-core-2.8.11-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.8.11/jackson-core-2.8.11-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.11">
+    <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.8.11/jackson-databind-2.8.11.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.8.11/jackson-databind-2.8.11-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.8.11/jackson-databind-2.8.11-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.fasterxml:classmate:1.0.0">
@@ -452,15 +452,15 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/jhlabs/imaging/01012005/imaging-01012005-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.mchange:c3p0:0.9.5.3">
+    <library name="Maven: com.mchange:c3p0:0.9.5.4">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.3/c3p0-0.9.5.3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.4/c3p0-0.9.5.4.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.3/c3p0-0.9.5.3-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.4/c3p0-0.9.5.4-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.3/c3p0-0.9.5.3-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/mchange/c3p0/0.9.5.4/c3p0-0.9.5.4-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.mchange:mchange-commons-java:0.2.15">
