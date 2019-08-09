@@ -178,6 +178,45 @@
     <div style="clear:both"></div>
 
     <div class="dinput_row_section">
+        <div class="dfield_left_part">Resource Type:</div>
+        <div class="dfield_right_part">
+            <@sf.select path="resourceType.resourceTypeGeneral" id="resourceType"  cssClass="input_select_field">
+                <@sf.option value="none"> --- Select --- </@sf.option>
+                <@sf.option value="Collection">Audiovisual</@sf.option>
+                <@sf.option value="Collection">Collection</@sf.option>
+                <@sf.option value="Dataset">Dataset</@sf.option>
+                <@sf.option value="Event">Event</@sf.option>
+                <@sf.option value="Image">Image</@sf.option>
+                <@sf.option value="InteractiveResource">Interactive Resource</@sf.option>
+                <@sf.option value="PhysicalObject">Physical Object</@sf.option>
+                <@sf.option value="Service">Service</@sf.option>
+                <@sf.option value="Software">Software</@sf.option>
+                <@sf.option value="Sound">Sound</@sf.option>
+                <@sf.option value="Text">Text</@sf.option>
+                <@sf.option value="Workflow">Workflow</@sf.option>
+                <@sf.option value="Other">Other</@sf.option>
+            </@sf.select>
+            <span class="red_span"> *</span>
+        </div>
+        <div class="dfield_comments">
+            <@s.message "comment.doi.resource.type" />
+        </div>
+    </div>
+    <div style="clear:both"></div>
+
+    <div class="dinput_row_section">
+        <div class="dfield_left_part">Resource Type Description:</div>
+        <div class="dfield_right_part">
+            <@sf.input path="resourceType.type" />
+            <span class="dcomment_span">Optional</span>
+        </div>
+        <div class="dfield_comments">
+            <@s.message "comment.doi.resource.type.desc" />
+        </div>
+    </div>
+    <div style="clear:both"></div>
+
+    <div class="dinput_row_section">
         <div class="dfield_left_part">Publisher:</div>
         <div class="dfield_right_part">
             <@sf.input path="publisher.publisher" />

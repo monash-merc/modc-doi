@@ -1,38 +1,272 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://merc.monash.edu/ws/schema/mds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://merc.monash.edu/ws/schema/mds" targetNamespace="http://merc.monash.edu/ws/schema/mds">
-  <wsdl:types>
-    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://merc.monash.edu/ws/schema/mds" xmlns:tns="http://merc.monash.edu/ws/schema/mds"><element name="WPublishRequest" xmlns="http://www.w3.org/2001/XMLSchema"><complexType xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="appId" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="collection" type="tns:WCollection" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType></element><element name="WPublishResponse" xmlns="http://www.w3.org/2001/XMLSchema"><complexType xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="code" type="tns:WPublishResponseCode" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="message" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="result" type="tns:WPublishResponseResult" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType></element><complexType name="WCollection" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="key" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" minOccurs="0" name="identifier" type="tns:WIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="name" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="description" type="tns:WDescType" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="createdDate" type="dateTime" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="endDate" type="dateTime" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="postalAddress" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="electronicAddress" type="tns:WElectronicAddress" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="spatialCoverage" type="tns:WSpatialCoverage" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" minOccurs="0" name="licence" type="tns:WLicence" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="accessRights" type="tns:WDescType" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" minOccurs="0" name="subject" type="tns:WSubject" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" minOccurs="0" name="publication" type="tns:WPublication" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" minOccurs="0" name="citation" type="tns:WCitation" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" name="party" type="tns:WParty" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence><attribute name="type" type="tns:WCollectionType" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></complexType><simpleType name="WCollectionType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="catalogueOrIndex" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="collection" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="registry" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="repository" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="dataset" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="WIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="type" type="tns:WIdentifierType" use="optional" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="WIdentifierType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="abn" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="arc" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="ark" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="doi" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="handle" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="infouri" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isil" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="local" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="purl" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="uri" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="WElectronicAddress" xmlns="http://www.w3.org/2001/XMLSchema"><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="type" type="tns:WAddressType" use="optional" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="WAddressType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="email" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="url" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="other" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="WSpatialCoverage" xmlns="http://www.w3.org/2001/XMLSchema"><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="type" type="tns:WSpatialType" use="optional" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="WSpatialType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="gml" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="gmlKmlPolyCoords" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="gpx" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="iso31661" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="iso31662" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="iso19139dcmiBox" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="kml" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="kmlPolyCoords" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="dcmiPoint" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="text" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="WLicence" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><maxLength value="4000" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="WSubject" xmlns="http://www.w3.org/2001/XMLSchema"><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="type" type="string" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="WDescType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><maxLength value="4000" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="WPublication" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element minOccurs="0" name="url" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="title" type="tns:WTitleType" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><simpleType name="WTitleType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><maxLength value="4000" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="WCitation" xmlns="http://www.w3.org/2001/XMLSchema"><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="style" type="tns:WCitationType" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="WCitationType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="Harvard" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="APA" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MLA" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Vancouver" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IEEE" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="CSE" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Chicago" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="AMA" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="AGPS-AGIMO" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="AGLC" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="ACS" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Datacite" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="emailType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><pattern value="[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+([A-Za-z0-9]{2,4})" xmlns="http://www.w3.org/2001/XMLSchema"/><minLength value="6" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="WPublishResponseCode" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="success" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="failure" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="WPublishResponseResult" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element minOccurs="0" name="collection" type="tns:WCollecionResponse" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="WCollecionResponse" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="key" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" name="identifier" type="tns:WIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" name="party" type="tns:WPublishPartyResponse" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="WPublishPartyResponse" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="key" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element maxOccurs="unbounded" minOccurs="0" name="identifier" type="tns:WIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence><attribute name="relation" type="tns:WPartyRelationType" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></complexType><complexType name="WParty" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="key" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="identifier" type="tns:WIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/><choice xmlns="http://www.w3.org/2001/XMLSchema"><element name="person" type="tns:WPerson" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="group" type="tns:WGroup" xmlns="http://www.w3.org/2001/XMLSchema"/></choice><element minOccurs="0" name="url" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="postalAddress" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="description" type="tns:WDescType" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence><attribute name="relation" type="tns:WPartyRelationType" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></complexType><complexType name="WPerson" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="title" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="firstName" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="lastName" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="email" type="tns:emailType" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="WGroup" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="name" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><simpleType name="WPartyRelationType" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="hasAssociationWith" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="hasMember" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="hasPart" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isCollectorOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isFundedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isFunderOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isManagedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isManagerOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isMemberOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isOwnedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isOwnerOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isPartOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="isParticipantIn" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="enriches" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType></schema>
-  </wsdl:types>
-  <wsdl:message name="WPublishRequest">
-    <wsdl:part element="tns:WPublishRequest" name="WPublishRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="WPublishResponse">
-    <wsdl:part element="tns:WPublishResponse" name="WPublishResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="MDService">
-    <wsdl:operation name="WPublish">
-      <wsdl:input message="tns:WPublishRequest" name="WPublishRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:WPublishResponse" name="WPublishResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="MDServiceSoap11" type="tns:MDService">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="WPublish">
-      <soap:operation soapAction=""/>
-      <wsdl:input name="WPublishRequest">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="WPublishResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="MDService">
-    <wsdl:port binding="tns:MDServiceSoap11" name="MDServiceSoap11">
-      <soap:address location="/ws"/>
-    </wsdl:port>
-  </wsdl:service>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://merc.monash.edu/ws/schema/mds"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://merc.monash.edu/ws/schema/mds"
+                  targetNamespace="http://merc.monash.edu/ws/schema/mds">
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified"
+                targetNamespace="http://merc.monash.edu/ws/schema/mds">
+            <element name="WPublishRequest">
+                <complexType>
+                    <sequence>
+                        <element name="appId" type="string"/>
+                        <element name="collection" type="tns:WCollection"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="WPublishResponse">
+                <complexType>
+                    <sequence>
+                        <element name="code" type="tns:WPublishResponseCode"/>
+                        <element name="message" type="string"/>
+                        <element name="result" type="tns:WPublishResponseResult"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <complexType name="WCollection">
+                <sequence>
+                    <element name="key" type="string"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="identifier" type="tns:WIdentifier"/>
+                    <element name="name" type="string"/>
+                    <element minOccurs="0" name="description" type="tns:WDescType"/>
+                    <element minOccurs="0" name="createdDate" type="dateTime"/>
+                    <element minOccurs="0" name="endDate" type="dateTime"/>
+                    <element minOccurs="0" name="postalAddress" type="string"/>
+                    <element minOccurs="0" name="electronicAddress" type="tns:WElectronicAddress"/>
+                    <element minOccurs="0" name="spatialCoverage" type="tns:WSpatialCoverage"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="licence" type="tns:WLicence"/>
+                    <element minOccurs="0" name="accessRights" type="tns:WDescType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="subject" type="tns:WSubject"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="publication" type="tns:WPublication"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="citation" type="tns:WCitation"/>
+                    <element maxOccurs="unbounded" name="party" type="tns:WParty"/>
+                </sequence>
+                <attribute name="type" type="tns:WCollectionType" use="required"/>
+            </complexType>
+            <simpleType name="WCollectionType">
+                <restriction base="string">
+                    <enumeration value="catalogueOrIndex"/>
+                    <enumeration value="collection"/>
+                    <enumeration value="registry"/>
+                    <enumeration value="repository"/>
+                    <enumeration value="dataset"/>
+                </restriction>
+            </simpleType>
+            <complexType name="WIdentifier">
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="type" type="tns:WIdentifierType" use="optional"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="WIdentifierType">
+                <restriction base="string">
+                    <enumeration value="abn"/>
+                    <enumeration value="arc"/>
+                    <enumeration value="ark"/>
+                    <enumeration value="doi"/>
+                    <enumeration value="handle"/>
+                    <enumeration value="infouri"/>
+                    <enumeration value="isil"/>
+                    <enumeration value="local"/>
+                    <enumeration value="purl"/>
+                    <enumeration value="uri"/>
+                </restriction>
+            </simpleType>
+            <complexType name="WElectronicAddress">
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="type" type="tns:WAddressType" use="optional"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="WAddressType">
+                <restriction base="string">
+                    <enumeration value="email"/>
+                    <enumeration value="url"/>
+                    <enumeration value="other"/>
+                </restriction>
+            </simpleType>
+            <complexType name="WSpatialCoverage">
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="type" type="tns:WSpatialType" use="optional"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="WSpatialType">
+                <restriction base="string">
+                    <enumeration value="gml"/>
+                    <enumeration value="gmlKmlPolyCoords"/>
+                    <enumeration value="gpx"/>
+                    <enumeration value="iso31661"/>
+                    <enumeration value="iso31662"/>
+                    <enumeration value="iso19139dcmiBox"/>
+                    <enumeration value="kml"/>
+                    <enumeration value="kmlPolyCoords"/>
+                    <enumeration value="dcmiPoint"/>
+                    <enumeration value="text"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="WLicence">
+                <restriction base="string">
+                    <maxLength value="4000"/>
+                </restriction>
+            </simpleType>
+            <complexType name="WSubject">
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="type" type="string" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="WDescType">
+                <restriction base="string">
+                    <maxLength value="4000"/>
+                </restriction>
+            </simpleType>
+            <complexType name="WPublication">
+                <sequence>
+                    <element minOccurs="0" name="url" type="string"/>
+                    <element name="title" type="tns:WTitleType"/>
+                </sequence>
+            </complexType>
+            <simpleType name="WTitleType">
+                <restriction base="string">
+                    <maxLength value="4000"/>
+                </restriction>
+            </simpleType>
+            <complexType name="WCitation">
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="style" type="tns:WCitationType" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="WCitationType">
+                <restriction base="string">
+                    <enumeration value="Harvard"/>
+                    <enumeration value="APA"/>
+                    <enumeration value="MLA"/>
+                    <enumeration value="Vancouver"/>
+                    <enumeration value="IEEE"/>
+                    <enumeration value="CSE"/>
+                    <enumeration value="Chicago"/>
+                    <enumeration value="AMA"/>
+                    <enumeration value="AGPS-AGIMO"/>
+                    <enumeration value="AGLC"/>
+                    <enumeration value="ACS"/>
+                    <enumeration value="Datacite"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="emailType">
+                <restriction base="string">
+                    <pattern value="[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+([A-Za-z0-9]{2,4})"/>
+                    <minLength value="6"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="WPublishResponseCode">
+                <restriction base="string">
+                    <enumeration value="success"/>
+                    <enumeration value="failure"/>
+                </restriction>
+            </simpleType>
+            <complexType name="WPublishResponseResult">
+                <sequence>
+                    <element minOccurs="0" name="collection" type="tns:WCollecionResponse"/>
+                </sequence>
+            </complexType>
+            <complexType name="WCollecionResponse">
+                <sequence>
+                    <element name="key" type="string"/>
+                    <element maxOccurs="unbounded" name="identifier" type="tns:WIdentifier"/>
+                    <element maxOccurs="unbounded" name="party" type="tns:WPublishPartyResponse"/>
+                </sequence>
+            </complexType>
+            <complexType name="WPublishPartyResponse">
+                <sequence>
+                    <element name="key" type="string"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="identifier" type="tns:WIdentifier"/>
+                </sequence>
+                <attribute name="relation" type="tns:WPartyRelationType" use="required"/>
+            </complexType>
+            <complexType name="WParty">
+                <sequence>
+                    <element name="key" type="string"/>
+                    <element minOccurs="0" name="identifier" type="tns:WIdentifier"/>
+                    <choice>
+                        <element name="person" type="tns:WPerson"/>
+                        <element name="group" type="tns:WGroup"/>
+                    </choice>
+                    <element minOccurs="0" name="url" type="string"/>
+                    <element minOccurs="0" name="postalAddress" type="string"/>
+                    <element minOccurs="0" name="description" type="tns:WDescType"/>
+                </sequence>
+                <attribute name="relation" type="tns:WPartyRelationType" use="required"/>
+            </complexType>
+            <complexType name="WPerson">
+                <sequence>
+                    <element name="title" type="string"/>
+                    <element name="firstName" type="string"/>
+                    <element name="lastName" type="string"/>
+                    <element name="email" type="tns:emailType"/>
+                </sequence>
+            </complexType>
+            <complexType name="WGroup">
+                <sequence>
+                    <element name="name" type="string"/>
+                </sequence>
+            </complexType>
+            <simpleType name="WPartyRelationType">
+                <restriction base="string">
+                    <enumeration value="hasAssociationWith"/>
+                    <enumeration value="hasMember"/>
+                    <enumeration value="hasPart"/>
+                    <enumeration value="isCollectorOf"/>
+                    <enumeration value="isFundedBy"/>
+                    <enumeration value="isFunderOf"/>
+                    <enumeration value="isManagedBy"/>
+                    <enumeration value="isManagerOf"/>
+                    <enumeration value="isMemberOf"/>
+                    <enumeration value="isOwnedBy"/>
+                    <enumeration value="isOwnerOf"/>
+                    <enumeration value="isPartOf"/>
+                    <enumeration value="isParticipantIn"/>
+                    <enumeration value="enriches"/>
+                </restriction>
+            </simpleType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="WPublishRequest">
+        <wsdl:part element="tns:WPublishRequest" name="WPublishRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WPublishResponse">
+        <wsdl:part element="tns:WPublishResponse" name="WPublishResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="MDService">
+        <wsdl:operation name="WPublish">
+            <wsdl:input message="tns:WPublishRequest" name="WPublishRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WPublishResponse" name="WPublishResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MDServiceSoap11" type="tns:MDService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="WPublish">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="WPublishRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="WPublishResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="MDService">
+        <wsdl:port binding="tns:MDServiceSoap11" name="MDServiceSoap11">
+            <soap:address location="/ws"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

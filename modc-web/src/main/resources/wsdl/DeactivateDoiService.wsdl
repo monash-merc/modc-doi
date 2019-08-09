@@ -1,38 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://merc.monash.edu/ws/schema/doi" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://merc.monash.edu/ws/schema/doi" targetNamespace="http://merc.monash.edu/ws/schema/doi">
-  <wsdl:types>
-    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:doi="http://merc.monash.edu/ws/schema/doi" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://merc.monash.edu/ws/schema/doi"><element name="DeactivateDoiRequest" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">DeactivateDoiRequest for deactivating a doi.</documentation></annotation><complexType xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="serviceId" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="doi" type="doi:Doi" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType></element><element name="DeactivateDoiResponse" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">DeactivateDoiResponse for deactivating a doi.</documentation></annotation><complexType xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="serviceId" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="responsecode" type="doi:DResponseCode" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="message" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="doi" type="doi:Doi" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="url" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="verbosemessage" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence><attribute name="type" type="doi:DResponseTypeAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></complexType></element><simpleType name="DResponseCode" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="MT001" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT002" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT003" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT004" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT005" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT006" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT007" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT008" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT009" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT010" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT011" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT012" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT013" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT090" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT091" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="DResponseTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="success" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="failure" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="Doi" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="token" xmlns="http://www.w3.org/2001/XMLSchema"><pattern value="[1][0][/.].*" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType></schema>
-  </wsdl:types>
-  <wsdl:message name="DeactivateDoiResponse">
-    <wsdl:part element="tns:DeactivateDoiResponse" name="DeactivateDoiResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="DeactivateDoiRequest">
-    <wsdl:part element="tns:DeactivateDoiRequest" name="DeactivateDoiRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="DeactivateDoiService">
-    <wsdl:operation name="DeactivateDoi">
-      <wsdl:input message="tns:DeactivateDoiRequest" name="DeactivateDoiRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:DeactivateDoiResponse" name="DeactivateDoiResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="DeactivateDoiServiceSoap11" type="tns:DeactivateDoiService">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="DeactivateDoi">
-      <soap:operation soapAction=""/>
-      <wsdl:input name="DeactivateDoiRequest">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="DeactivateDoiResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="DeactivateDoiService">
-    <wsdl:port binding="tns:DeactivateDoiServiceSoap11" name="DeactivateDoiServiceSoap11">
-      <soap:address location="/ws"/>
-    </wsdl:port>
-  </wsdl:service>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://merc.monash.edu/ws/schema/doi"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://merc.monash.edu/ws/schema/doi"
+                  targetNamespace="http://merc.monash.edu/ws/schema/doi">
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:doi="http://merc.monash.edu/ws/schema/doi"
+                attributeFormDefault="qualified" elementFormDefault="qualified"
+                targetNamespace="http://merc.monash.edu/ws/schema/doi">
+            <element name="DeactivateDoiRequest">
+                <annotation>
+                    <documentation>DeactivateDoiRequest for deactivating a doi.</documentation>
+                </annotation>
+                <complexType>
+                    <sequence>
+                        <element name="serviceId" type="string"/>
+                        <element name="doi" type="doi:Doi"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="DeactivateDoiResponse">
+                <annotation>
+                    <documentation>DeactivateDoiResponse for deactivating a doi.</documentation>
+                </annotation>
+                <complexType>
+                    <sequence>
+                        <element name="serviceId" type="string"/>
+                        <element name="responsecode" type="doi:DResponseCode"/>
+                        <element name="message" type="string"/>
+                        <element name="doi" type="doi:Doi"/>
+                        <element name="url" type="string"/>
+                        <element name="verbosemessage" type="string"/>
+                    </sequence>
+                    <attribute name="type" type="doi:DResponseTypeAtt" use="required"/>
+                </complexType>
+            </element>
+            <simpleType name="DResponseCode">
+                <restriction base="string">
+                    <enumeration value="MT001"/>
+                    <enumeration value="MT002"/>
+                    <enumeration value="MT003"/>
+                    <enumeration value="MT004"/>
+                    <enumeration value="MT005"/>
+                    <enumeration value="MT006"/>
+                    <enumeration value="MT007"/>
+                    <enumeration value="MT008"/>
+                    <enumeration value="MT009"/>
+                    <enumeration value="MT010"/>
+                    <enumeration value="MT011"/>
+                    <enumeration value="MT012"/>
+                    <enumeration value="MT013"/>
+                    <enumeration value="MT090"/>
+                    <enumeration value="MT091"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="DResponseTypeAtt">
+                <restriction base="string">
+                    <enumeration value="success"/>
+                    <enumeration value="failure"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="Doi">
+                <restriction base="token">
+                    <pattern value="[1][0][/.].*"/>
+                </restriction>
+            </simpleType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="DeactivateDoiRequest">
+        <wsdl:part element="tns:DeactivateDoiRequest" name="DeactivateDoiRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DeactivateDoiResponse">
+        <wsdl:part element="tns:DeactivateDoiResponse" name="DeactivateDoiResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="DeactivateDoiService">
+        <wsdl:operation name="DeactivateDoi">
+            <wsdl:input message="tns:DeactivateDoiRequest" name="DeactivateDoiRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:DeactivateDoiResponse" name="DeactivateDoiResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DeactivateDoiServiceSoap11" type="tns:DeactivateDoiService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="DeactivateDoi">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="DeactivateDoiRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="DeactivateDoiResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DeactivateDoiService">
+        <wsdl:port binding="tns:DeactivateDoiServiceSoap11" name="DeactivateDoiServiceSoap11">
+            <soap:address location="/ws"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

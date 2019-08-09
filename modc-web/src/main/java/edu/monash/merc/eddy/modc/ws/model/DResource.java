@@ -30,7 +30,7 @@ import edu.monash.merc.eddy.modc.ws.jaxbadapter.JaxbDateAdapter;
  *         &lt;element name="contributors" type="{http://merc.monash.edu/ws/schema/doi}DContributors" minOccurs="0"/>
  *         &lt;element name="dates" type="{http://merc.monash.edu/ws/schema/doi}DDates" minOccurs="0"/>
  *         &lt;element name="language" type="{http://www.w3.org/2001/XMLSchema}language" minOccurs="0"/>
- *         &lt;element name="resourceType" type="{http://merc.monash.edu/ws/schema/doi}DResourceType" minOccurs="0"/>
+ *         &lt;element name="resourceType" type="{http://merc.monash.edu/ws/schema/doi}DResourceType"/>
  *         &lt;element name="alternateIdentifiers" type="{http://merc.monash.edu/ws/schema/doi}DAlternateIdentifiers" minOccurs="0"/>
  *         &lt;element name="relatedIdentifiers" type="{http://merc.monash.edu/ws/schema/doi}DRelatedIdentifiers" minOccurs="0"/>
  *         &lt;element name="sizes" type="{http://merc.monash.edu/ws/schema/doi}DSizes" minOccurs="0"/>
@@ -83,6 +83,7 @@ public class DResource {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "language")
     protected String language;
+    @XmlElement(required = true)
     protected DResourceType resourceType;
     protected DAlternateIdentifiers alternateIdentifiers;
     protected DRelatedIdentifiers relatedIdentifiers;

@@ -65,6 +65,7 @@
         <property name="maxTotalConnections" value="${max.total.connections}"/>
         <property name="maxPerRouteConnections" value="${max.per.route.connections}"/>
         <property name="keepAliveInSeconds" value="${keep.alive.in.seconds}"/>
+        <property name="dataCiteSchemaVersion" value="${datacite.schema}"/>
     </bean>
 
     <!-- FreeMarker Mail-->

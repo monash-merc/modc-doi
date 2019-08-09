@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resource xmlns="http://datacite.org/schema/kernel-2.2"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd">
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-${schemaVersion}"
+          xsi:schemaLocation="http://datacite.org/schema/kernel-${schemaVersion} http://schema.datacite.org/meta/kernel-${schemaVersion}/metadata.xsd">
 <#if doi??>
     <identifier identifierType="DOI">${doi}</identifier>
 </#if>
@@ -11,7 +10,8 @@
             <creator>
                 <creatorName>${doiCreator.creatorName}</creatorName>
                 <#if doiCreator.nameIdentifier??>
-                    <nameIdentifier nameIdentifierScheme="${doiCreator.nameIdentifier.nameIdentifierScheme}">${doiCreator.nameIdentifier.identifier}</nameIdentifier>
+                    <nameIdentifier
+                            nameIdentifierScheme="${doiCreator.nameIdentifier.nameIdentifierScheme}">${doiCreator.nameIdentifier.identifier}</nameIdentifier>
                 </#if>
             </creator>
         </#list>
@@ -51,7 +51,8 @@
             <contributor contributorType="${doiContributor.contributorType}">
                 <contributorName>${doiContributor.contributorName}</contributorName>
                 <#if doiContributor.nameIdentifier??>
-                    <nameIdentifier nameIdentifierScheme="${doiContributor.nameIdentifier.nameIdentifierScheme}">${doiContributor.nameIdentifier.identifier}</nameIdentifier>
+                    <nameIdentifier
+                            nameIdentifierScheme="${doiContributor.nameIdentifier.nameIdentifierScheme}">${doiContributor.nameIdentifier.identifier}</nameIdentifier>
                 </#if>
             </contributor>
         </#list>
@@ -73,14 +74,16 @@
 <#if doiAlternateIdentifiers??>
     <alternateIdentifiers>
         <#list doiAlternateIdentifiers as doiAltId>
-            <alternateIdentifier alternateIdentifierType="${doiAltId.alternateIdentifierType}">${doiAltId.alternateIdentifier}</alternateIdentifier>
+            <alternateIdentifier
+                    alternateIdentifierType="${doiAltId.alternateIdentifierType}">${doiAltId.alternateIdentifier}</alternateIdentifier>
         </#list>
     </alternateIdentifiers>
 </#if>
 <#if doiRelatedIdentifiers??>
     <relatedIdentifiers>
         <#list doiRelatedIdentifiers as doiRelId>
-            <relatedIdentifier relatedIdentifierType="${doiRelId.relatedIdentifierType}" relationType="${doiRelId.relationType}">${doiRelId.relatedIdentifier}</relatedIdentifier>
+            <relatedIdentifier relatedIdentifierType="${doiRelId.relatedIdentifierType}"
+                               relationType="${doiRelId.relationType}">${doiRelId.relatedIdentifier}</relatedIdentifier>
         </#list>
     </relatedIdentifiers>
 </#if>

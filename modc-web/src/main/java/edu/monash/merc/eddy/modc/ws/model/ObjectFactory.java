@@ -30,6 +30,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UpdateDoiResponse }
+     * 
+     */
+    public UpdateDoiResponse createUpdateDoiResponse() {
+        return new UpdateDoiResponse();
+    }
+
+    /**
+     * Create an instance of {@link MintDoiResponse }
+     * 
+     */
+    public MintDoiResponse createMintDoiResponse() {
+        return new MintDoiResponse();
+    }
+
+    /**
      * Create an instance of {@link UpdateDoiRequest }
      * 
      */
@@ -46,35 +62,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeactivateDoiRequest }
-     * 
-     */
-    public DeactivateDoiRequest createDeactivateDoiRequest() {
-        return new DeactivateDoiRequest();
-    }
-
-    /**
-     * Create an instance of {@link ActivateDoiRequest }
-     * 
-     */
-    public ActivateDoiRequest createActivateDoiRequest() {
-        return new ActivateDoiRequest();
-    }
-
-    /**
      * Create an instance of {@link DeactivateDoiResponse }
      * 
      */
     public DeactivateDoiResponse createDeactivateDoiResponse() {
         return new DeactivateDoiResponse();
-    }
-
-    /**
-     * Create an instance of {@link MintDoiResponse }
-     * 
-     */
-    public MintDoiResponse createMintDoiResponse() {
-        return new MintDoiResponse();
     }
 
     /**
@@ -86,11 +78,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateDoiResponse }
+     * Create an instance of {@link ActivateDoiRequest }
      * 
      */
-    public UpdateDoiResponse createUpdateDoiResponse() {
-        return new UpdateDoiResponse();
+    public ActivateDoiRequest createActivateDoiRequest() {
+        return new ActivateDoiRequest();
     }
 
     /**
@@ -102,43 +94,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DResourceType }
+     * Create an instance of {@link DeactivateDoiRequest }
      * 
      */
-    public DResourceType createDResourceType() {
-        return new DResourceType();
-    }
-
-    /**
-     * Create an instance of {@link DDate }
-     * 
-     */
-    public DDate createDDate() {
-        return new DDate();
-    }
-
-    /**
-     * Create an instance of {@link DDescription }
-     * 
-     */
-    public DDescription createDDescription() {
-        return new DDescription();
-    }
-
-    /**
-     * Create an instance of {@link DNameIdentifier }
-     * 
-     */
-    public DNameIdentifier createDNameIdentifier() {
-        return new DNameIdentifier();
-    }
-
-    /**
-     * Create an instance of {@link DRelatedIdentifiers }
-     * 
-     */
-    public DRelatedIdentifiers createDRelatedIdentifiers() {
-        return new DRelatedIdentifiers();
+    public DeactivateDoiRequest createDeactivateDoiRequest() {
+        return new DeactivateDoiRequest();
     }
 
     /**
@@ -150,11 +110,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DAlternateIdentifiers }
+     * Create an instance of {@link DNameIdentifier }
      * 
      */
-    public DAlternateIdentifiers createDAlternateIdentifiers() {
-        return new DAlternateIdentifiers();
+    public DNameIdentifier createDNameIdentifier() {
+        return new DNameIdentifier();
     }
 
     /**
@@ -166,11 +126,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DSizes }
+     * Create an instance of {@link DSubjects }
      * 
      */
-    public DSizes createDSizes() {
-        return new DSizes();
+    public DSubjects createDSubjects() {
+        return new DSubjects();
+    }
+
+    /**
+     * Create an instance of {@link DDate }
+     * 
+     */
+    public DDate createDDate() {
+        return new DDate();
+    }
+
+    /**
+     * Create an instance of {@link DDescriptions }
+     * 
+     */
+    public DDescriptions createDDescriptions() {
+        return new DDescriptions();
+    }
+
+    /**
+     * Create an instance of {@link DDates }
+     * 
+     */
+    public DDates createDDates() {
+        return new DDates();
     }
 
     /**
@@ -182,11 +166,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DTitle }
+     * Create an instance of {@link DContributor }
      * 
      */
-    public DTitle createDTitle() {
-        return new DTitle();
+    public DContributor createDContributor() {
+        return new DContributor();
+    }
+
+    /**
+     * Create an instance of {@link DDescription }
+     * 
+     */
+    public DDescription createDDescription() {
+        return new DDescription();
+    }
+
+    /**
+     * Create an instance of {@link DRelatedIdentifiers }
+     * 
+     */
+    public DRelatedIdentifiers createDRelatedIdentifiers() {
+        return new DRelatedIdentifiers();
+    }
+
+    /**
+     * Create an instance of {@link DAlternateIdentifiers }
+     * 
+     */
+    public DAlternateIdentifiers createDAlternateIdentifiers() {
+        return new DAlternateIdentifiers();
+    }
+
+    /**
+     * Create an instance of {@link DCreator }
+     * 
+     */
+    public DCreator createDCreator() {
+        return new DCreator();
     }
 
     /**
@@ -206,27 +222,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DCreator }
+     * Create an instance of {@link DSizes }
      * 
      */
-    public DCreator createDCreator() {
-        return new DCreator();
-    }
-
-    /**
-     * Create an instance of {@link DDescriptions }
-     * 
-     */
-    public DDescriptions createDDescriptions() {
-        return new DDescriptions();
-    }
-
-    /**
-     * Create an instance of {@link DContributor }
-     * 
-     */
-    public DContributor createDContributor() {
-        return new DContributor();
+    public DSizes createDSizes() {
+        return new DSizes();
     }
 
     /**
@@ -238,6 +238,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DTitle }
+     * 
+     */
+    public DTitle createDTitle() {
+        return new DTitle();
+    }
+
+    /**
      * Create an instance of {@link DSubject }
      * 
      */
@@ -246,35 +254,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DSubjects }
+     * Create an instance of {@link DResourceType }
      * 
      */
-    public DSubjects createDSubjects() {
-        return new DSubjects();
-    }
-
-    /**
-     * Create an instance of {@link DDates }
-     * 
-     */
-    public DDates createDDates() {
-        return new DDates();
-    }
-
-    /**
-     * Create an instance of {@link WPublishResponse }
-     * 
-     */
-    public WPublishResponse createWPublishResponse() {
-        return new WPublishResponse();
-    }
-
-    /**
-     * Create an instance of {@link WPublishResponseResult }
-     * 
-     */
-    public WPublishResponseResult createWPublishResponseResult() {
-        return new WPublishResponseResult();
+    public DResourceType createDResourceType() {
+        return new DResourceType();
     }
 
     /**
@@ -294,59 +278,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link WPublishPartyResponse }
+     * Create an instance of {@link WPublishResponse }
      * 
      */
-    public WPublishPartyResponse createWPublishPartyResponse() {
-        return new WPublishPartyResponse();
+    public WPublishResponse createWPublishResponse() {
+        return new WPublishResponse();
     }
 
     /**
-     * Create an instance of {@link WSpatialCoverage }
+     * Create an instance of {@link WPublishResponseResult }
      * 
      */
-    public WSpatialCoverage createWSpatialCoverage() {
-        return new WSpatialCoverage();
-    }
-
-    /**
-     * Create an instance of {@link WCollecionResponse }
-     * 
-     */
-    public WCollecionResponse createWCollecionResponse() {
-        return new WCollecionResponse();
-    }
-
-    /**
-     * Create an instance of {@link WSubject }
-     * 
-     */
-    public WSubject createWSubject() {
-        return new WSubject();
-    }
-
-    /**
-     * Create an instance of {@link WParty }
-     * 
-     */
-    public WParty createWParty() {
-        return new WParty();
-    }
-
-    /**
-     * Create an instance of {@link WElectronicAddress }
-     * 
-     */
-    public WElectronicAddress createWElectronicAddress() {
-        return new WElectronicAddress();
-    }
-
-    /**
-     * Create an instance of {@link WIdentifier }
-     * 
-     */
-    public WIdentifier createWIdentifier() {
-        return new WIdentifier();
+    public WPublishResponseResult createWPublishResponseResult() {
+        return new WPublishResponseResult();
     }
 
     /**
@@ -358,11 +302,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link WPublication }
+     * Create an instance of {@link WElectronicAddress }
      * 
      */
-    public WPublication createWPublication() {
-        return new WPublication();
+    public WElectronicAddress createWElectronicAddress() {
+        return new WElectronicAddress();
+    }
+
+    /**
+     * Create an instance of {@link WCollecionResponse }
+     * 
+     */
+    public WCollecionResponse createWCollecionResponse() {
+        return new WCollecionResponse();
+    }
+
+    /**
+     * Create an instance of {@link WParty }
+     * 
+     */
+    public WParty createWParty() {
+        return new WParty();
     }
 
     /**
@@ -374,11 +334,51 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link WSpatialCoverage }
+     * 
+     */
+    public WSpatialCoverage createWSpatialCoverage() {
+        return new WSpatialCoverage();
+    }
+
+    /**
+     * Create an instance of {@link WPublication }
+     * 
+     */
+    public WPublication createWPublication() {
+        return new WPublication();
+    }
+
+    /**
+     * Create an instance of {@link WIdentifier }
+     * 
+     */
+    public WIdentifier createWIdentifier() {
+        return new WIdentifier();
+    }
+
+    /**
+     * Create an instance of {@link WPublishPartyResponse }
+     * 
+     */
+    public WPublishPartyResponse createWPublishPartyResponse() {
+        return new WPublishPartyResponse();
+    }
+
+    /**
      * Create an instance of {@link WGroup }
      * 
      */
     public WGroup createWGroup() {
         return new WGroup();
+    }
+
+    /**
+     * Create an instance of {@link WSubject }
+     * 
+     */
+    public WSubject createWSubject() {
+        return new WSubject();
     }
 
 }

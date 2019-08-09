@@ -59,6 +59,8 @@ public class DOIServiceHelper {
 
     private String doiTemplate;
 
+    private String dataCiteSchemaVersion;
+
     private int maxTotalConnections;
 
     private int maxPerRouteConnections;
@@ -231,6 +233,14 @@ public class DOIServiceHelper {
 
     public void setDoiTemplate(String doiTemplate) {
         this.doiTemplate = doiTemplate;
+    }
+
+    public String getDataCiteSchemaVersion() {
+        return dataCiteSchemaVersion;
+    }
+
+    public void setDataCiteSchemaVersion(String dataCiteSchemaVersion) {
+        this.dataCiteSchemaVersion = dataCiteSchemaVersion;
     }
 
     public int getMaxTotalConnections() {

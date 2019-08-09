@@ -1,55 +1,435 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://merc.monash.edu/ws/schema/doi" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://merc.monash.edu/ws/schema/doi" targetNamespace="http://merc.monash.edu/ws/schema/doi">
-  <wsdl:types>
-    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:doi="http://merc.monash.edu/ws/schema/doi" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://merc.monash.edu/ws/schema/doi"><element name="MintDoiRequest" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">MintDoiRequest for minting a doi.</documentation></annotation><complexType xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="serviceId" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="resource" type="doi:DResource" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="url" type="doi:DUrl" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType></element><element name="MintDoiResponse" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">MintDoiResponse for minting a doi.</documentation></annotation><complexType xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="serviceId" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="responsecode" type="doi:DResponseCode" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="message" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="doi" type="doi:Doi" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="url" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="verbosemessage" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence><attribute name="type" type="doi:DResponseTypeAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></complexType></element><complexType name="DResource" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="creators" type="doi:DCreators" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="titles" type="doi:DTitles" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="publisher" type="doi:NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"/><element name="publicationYear" type="date" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="subjects" type="doi:DSubjects" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="contributors" type="doi:DContributors" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="dates" type="doi:DDates" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="language" type="language" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="resourceType" type="doi:DResourceType" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="alternateIdentifiers" type="doi:DAlternateIdentifiers" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="relatedIdentifiers" type="doi:DRelatedIdentifiers" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="sizes" type="doi:DSizes" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="formats" type="doi:DFormats" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="version" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="rights" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="descriptions" type="doi:DDescriptions" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DCreators" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" name="creator" type="doi:DCreator" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DCreator" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">The main researchers involved working on the data, or the authors of the
-                publication in priority order. May be a corporate/institutional or personal
-                name.
-            </documentation><documentation xmlns="http://www.w3.org/2001/XMLSchema">Format: Family, Given.</documentation></annotation><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="creatorName" type="doi:NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="nameIdentifier" type="doi:DNameIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DNameIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="doi:NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="nameIdentifierScheme" type="string" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><complexType name="DTitles" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" name="title" type="doi:DTitle" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DTitle" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">A name or title by which a resource is known.</documentation></annotation><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="doi:NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="titleType" type="doi:DTitleTypeAtt" use="optional" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="DTitleTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="AlternativeTitle" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Subtitle" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="TranslatedTitle" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="DSubjects" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="subject" type="doi:DSubject" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DSubject" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">Subject, keywords, classification codes, or key phrases describing the
-                resource.
-            </documentation></annotation><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="doi:NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="subjectScheme" type="string" use="optional" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><complexType name="DContributors" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="contributor" type="doi:DContributor" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DContributor" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">The institution or person responsible for collecting, creating, or
-                otherwise contributing to the developement of the dataset.
-            </documentation><documentation xmlns="http://www.w3.org/2001/XMLSchema">The personal name format should be: Family, Given.</documentation></annotation><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element name="contributorName" type="doi:NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"/><element minOccurs="0" name="nameIdentifier" type="doi:DNameIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence><attribute name="contributorType" type="doi:DContributorTypeAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></complexType><simpleType name="DContributorTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">The type of contributor of the resource.</documentation></annotation><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="ContactPerson" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="DataCollector" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="DataManager" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Distributor" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Editor" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Funder" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="HostingInstitution" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Producer" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="ProjectLeader" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="ProjectMember" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="RegistrationAgency" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="RegistrationAuthority" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="RelatedPerson" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="RightsHolder" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Researcher" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Sponsor" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Supervisor" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="WorkPackageLeader" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="DDates" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="date" type="doi:DDate" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DDate" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">Different dates relevant to the work.</documentation><documentation xmlns="http://www.w3.org/2001/XMLSchema">YYYY or YYYY-MM-DD or any other format described in W3CDTF
-                (http://www.w3.org/TR/NOTE-datetime)
-            </documentation></annotation><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="dateTime" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="dateType" type="doi:DDateTypeAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="DDateTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">DateType Attribute</documentation></annotation><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="Accepted" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Available" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Copyrighted" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Created" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="EndDate" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Issued" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="StartDate" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Submitted" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Updated" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Valid" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="DResourceType" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">The type of a resource. You may enter an additional free text
-                description.
-            </documentation></annotation><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="resourceTypeGeneral" type="doi:DResourceTypeGeneralAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="DResourceTypeGeneralAtt" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">The general type of a resource.</documentation><documentation xmlns="http://www.w3.org/2001/XMLSchema">Use this attribute to choose the general type of the resource from the
-                controlled list.
-            </documentation></annotation><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="Collection" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Dataset" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Event" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Film" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Image" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="InteractiveResource" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Model" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="PhysicalObject" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Service" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Software" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Sound" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Text" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="DAlternateIdentifiers" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="alternateIdentifier" type="doi:DAlternateIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DAlternateIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">An identifier other than the primary identifier applied to the resource being registered. This may be any alphanumeric string which is unique within its domain of issue. The
-                format is open
-            </documentation></annotation><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="alternateIdentifierType" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><complexType name="DRelatedIdentifiers" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="relatedIdentifier" type="doi:DRelatedIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DRelatedIdentifier" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">Identifiers of related resources. Use this property to indicate subsets of properties, as appropriate.</documentation></annotation><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="string" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="relatedIdentifierType" type="doi:DRelatedIdentifierTypeAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/><attribute name="relationType" type="doi:DRelationTypeAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="DRelatedIdentifierTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">The type of the RelatedIdentifier.</documentation></annotation><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="ARK" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="DOI" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="EAN13" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="EISSN" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Handle" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="ISBN" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="ISSN" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="ISTC" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="LISSN" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="LSID" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="PURL" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="UPC" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="URL" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="URN" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="DRelationTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">Description of the relationship of the resource being registered (A) and the related resource (B).</documentation></annotation><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="IsCitedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Cites" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsSupplementTo" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsSupplementedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsContinuedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Continues" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsNewVersionOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsPreviousVersionOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsPartOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="HasPart" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsReferencedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="References" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsDocumentedBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Documents" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsCompiledBy" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Compiles" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsVariantFormOf" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="IsOriginalFormOf" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><complexType name="DSizes" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="size" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DFormats" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="format" type="string" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DDescriptions" xmlns="http://www.w3.org/2001/XMLSchema"><sequence xmlns="http://www.w3.org/2001/XMLSchema"><element maxOccurs="unbounded" minOccurs="0" name="description" type="doi:DDescription" xmlns="http://www.w3.org/2001/XMLSchema"/></sequence></complexType><complexType name="DDescription" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">Subject, keywords, classification codes, or key phrases describing the
-                resource.
-            </documentation></annotation><simpleContent xmlns="http://www.w3.org/2001/XMLSchema"><extension base="doi:NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"><attribute name="descriptionType" type="doi:DDescriptionTypeAtt" use="required" xmlns="http://www.w3.org/2001/XMLSchema"/></extension></simpleContent></complexType><simpleType name="DDescriptionTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><annotation xmlns="http://www.w3.org/2001/XMLSchema"><documentation xmlns="http://www.w3.org/2001/XMLSchema">The type of the descriptionType Attribute.</documentation></annotation><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="Abstract" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="SeriesInformation" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="TableOfContents" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="Other" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="NoneEmptyString" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><minLength value="1" xmlns="http://www.w3.org/2001/XMLSchema"/><maxLength value="4000" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="DResponseCode" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="MT001" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT002" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT003" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT004" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT005" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT006" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT007" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT008" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT009" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT010" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT011" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT012" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT013" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT090" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="MT091" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="DResponseTypeAtt" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><enumeration value="success" xmlns="http://www.w3.org/2001/XMLSchema"/><enumeration value="failure" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="Doi" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="token" xmlns="http://www.w3.org/2001/XMLSchema"><pattern value="[1][0][/.].*" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType><simpleType name="DUrl" xmlns="http://www.w3.org/2001/XMLSchema"><restriction base="string" xmlns="http://www.w3.org/2001/XMLSchema"><pattern value="(https?://)?[-\w.]+(:\d{2,5})?(/([\w/_.]*)?)?" xmlns="http://www.w3.org/2001/XMLSchema"/></restriction></simpleType></schema>
-  </wsdl:types>
-  <wsdl:message name="MintDoiResponse">
-    <wsdl:part element="tns:MintDoiResponse" name="MintDoiResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="MintDoiRequest">
-    <wsdl:part element="tns:MintDoiRequest" name="MintDoiRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="MintDoiService">
-    <wsdl:operation name="MintDoi">
-      <wsdl:input message="tns:MintDoiRequest" name="MintDoiRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:MintDoiResponse" name="MintDoiResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="MintDoiServiceSoap11" type="tns:MintDoiService">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="MintDoi">
-      <soap:operation soapAction=""/>
-      <wsdl:input name="MintDoiRequest">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="MintDoiResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="MintDoiService">
-    <wsdl:port binding="tns:MintDoiServiceSoap11" name="MintDoiServiceSoap11">
-      <soap:address location="/ws"/>
-    </wsdl:port>
-  </wsdl:service>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://merc.monash.edu/ws/schema/doi"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://merc.monash.edu/ws/schema/doi"
+                  targetNamespace="http://merc.monash.edu/ws/schema/doi">
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:doi="http://merc.monash.edu/ws/schema/doi"
+                attributeFormDefault="qualified" elementFormDefault="qualified"
+                targetNamespace="http://merc.monash.edu/ws/schema/doi">
+            <element name="MintDoiRequest">
+                <annotation>
+                    <documentation>MintDoiRequest for minting a doi.</documentation>
+                </annotation>
+                <complexType>
+                    <sequence>
+                        <element name="serviceId" type="string"/>
+                        <element name="resource" type="doi:DResource"/>
+                        <element name="url" type="doi:DUrl"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="MintDoiResponse">
+                <annotation>
+                    <documentation>MintDoiResponse for minting a doi.</documentation>
+                </annotation>
+                <complexType>
+                    <sequence>
+                        <element name="serviceId" type="string"/>
+                        <element name="responsecode" type="doi:DResponseCode"/>
+                        <element name="message" type="string"/>
+                        <element name="doi" type="doi:Doi"/>
+                        <element name="url" type="string"/>
+                        <element name="verbosemessage" type="string"/>
+                    </sequence>
+                    <attribute name="type" type="doi:DResponseTypeAtt" use="required"/>
+                </complexType>
+            </element>
+            <complexType name="DResource">
+                <sequence>
+                    <element name="creators" type="doi:DCreators"/>
+                    <element name="titles" type="doi:DTitles"/>
+                    <element name="publisher" type="doi:NoneEmptyString"/>
+                    <element name="publicationYear" type="date"/>
+                    <element minOccurs="0" name="subjects" type="doi:DSubjects"/>
+                    <element minOccurs="0" name="contributors" type="doi:DContributors"/>
+                    <element minOccurs="0" name="dates" type="doi:DDates"/>
+                    <element minOccurs="0" name="language" type="language"/>
+                    <element name="resourceType" type="doi:DResourceType"/>
+                    <element minOccurs="0" name="alternateIdentifiers" type="doi:DAlternateIdentifiers"/>
+                    <element minOccurs="0" name="relatedIdentifiers" type="doi:DRelatedIdentifiers"/>
+                    <element minOccurs="0" name="sizes" type="doi:DSizes"/>
+                    <element minOccurs="0" name="formats" type="doi:DFormats"/>
+                    <element minOccurs="0" name="version" type="string"/>
+                    <element minOccurs="0" name="rights" type="string"/>
+                    <element minOccurs="0" name="descriptions" type="doi:DDescriptions"/>
+                </sequence>
+            </complexType>
+            <complexType name="DCreators">
+                <sequence>
+                    <element maxOccurs="unbounded" name="creator" type="doi:DCreator"/>
+                </sequence>
+            </complexType>
+            <complexType name="DCreator">
+                <annotation>
+                    <documentation>The main researchers involved working on the data, or the authors of the
+                        publication in priority order. May be a corporate/institutional or personal
+                        name.
+                    </documentation>
+                    <documentation>Format: Family, Given.</documentation>
+                </annotation>
+                <sequence>
+                    <element name="creatorName" type="doi:NoneEmptyString"/>
+                    <element minOccurs="0" name="nameIdentifier" type="doi:DNameIdentifier"/>
+                </sequence>
+            </complexType>
+            <complexType name="DNameIdentifier">
+                <simpleContent>
+                    <extension base="doi:NoneEmptyString">
+                        <attribute name="nameIdentifierScheme" type="string" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <complexType name="DTitles">
+                <sequence>
+                    <element maxOccurs="unbounded" name="title" type="doi:DTitle"/>
+                </sequence>
+            </complexType>
+            <complexType name="DTitle">
+                <annotation>
+                    <documentation>A name or title by which a resource is known.</documentation>
+                </annotation>
+                <simpleContent>
+                    <extension base="doi:NoneEmptyString">
+                        <attribute name="titleType" type="doi:DTitleTypeAtt" use="optional"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="DTitleTypeAtt">
+                <restriction base="string">
+                    <enumeration value="AlternativeTitle"/>
+                    <enumeration value="Subtitle"/>
+                    <enumeration value="TranslatedTitle"/>
+                </restriction>
+            </simpleType>
+            <complexType name="DSubjects">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="subject" type="doi:DSubject"/>
+                </sequence>
+            </complexType>
+            <complexType name="DSubject">
+                <annotation>
+                    <documentation>Subject, keywords, classification codes, or key phrases describing the
+                        resource.
+                    </documentation>
+                </annotation>
+                <simpleContent>
+                    <extension base="doi:NoneEmptyString">
+                        <attribute name="subjectScheme" type="string" use="optional"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <complexType name="DContributors">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="contributor" type="doi:DContributor"/>
+                </sequence>
+            </complexType>
+            <complexType name="DContributor">
+                <annotation>
+                    <documentation>The institution or person responsible for collecting, creating, or
+                        otherwise contributing to the developement of the dataset.
+                    </documentation>
+                    <documentation>The personal name format should be: Family, Given.</documentation>
+                </annotation>
+                <sequence>
+                    <element name="contributorName" type="doi:NoneEmptyString"/>
+                    <element minOccurs="0" name="nameIdentifier" type="doi:DNameIdentifier"/>
+                </sequence>
+                <attribute name="contributorType" type="doi:DContributorTypeAtt" use="required"/>
+            </complexType>
+            <simpleType name="DContributorTypeAtt">
+                <annotation>
+                    <documentation>The type of contributor of the resource.</documentation>
+                </annotation>
+                <restriction base="string">
+                    <enumeration value="ContactPerson"/>
+                    <enumeration value="DataCollector"/>
+                    <enumeration value="DataManager"/>
+                    <enumeration value="Distributor"/>
+                    <enumeration value="Editor"/>
+                    <enumeration value="Funder"/>
+                    <enumeration value="HostingInstitution"/>
+                    <enumeration value="Producer"/>
+                    <enumeration value="ProjectLeader"/>
+                    <enumeration value="ProjectMember"/>
+                    <enumeration value="RegistrationAgency"/>
+                    <enumeration value="RegistrationAuthority"/>
+                    <enumeration value="RelatedPerson"/>
+                    <enumeration value="RightsHolder"/>
+                    <enumeration value="Researcher"/>
+                    <enumeration value="Sponsor"/>
+                    <enumeration value="Supervisor"/>
+                    <enumeration value="WorkPackageLeader"/>
+                </restriction>
+            </simpleType>
+            <complexType name="DDates">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="date" type="doi:DDate"/>
+                </sequence>
+            </complexType>
+            <complexType name="DDate">
+                <annotation>
+                    <documentation>Different dates relevant to the work.</documentation>
+                    <documentation>YYYY or YYYY-MM-DD or any other format described in W3CDTF
+                        (http://www.w3.org/TR/NOTE-datetime)
+                    </documentation>
+                </annotation>
+                <simpleContent>
+                    <extension base="dateTime">
+                        <attribute name="dateType" type="doi:DDateTypeAtt" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="DDateTypeAtt">
+                <annotation>
+                    <documentation>DateType Attribute</documentation>
+                </annotation>
+                <restriction base="string">
+                    <enumeration value="Accepted"/>
+                    <enumeration value="Available"/>
+                    <enumeration value="Copyrighted"/>
+                    <enumeration value="Created"/>
+                    <enumeration value="EndDate"/>
+                    <enumeration value="Issued"/>
+                    <enumeration value="StartDate"/>
+                    <enumeration value="Submitted"/>
+                    <enumeration value="Updated"/>
+                    <enumeration value="Valid"/>
+                </restriction>
+            </simpleType>
+            <complexType name="DResourceType">
+                <annotation>
+                    <documentation>The type of a resource. You may enter an additional free text
+                        description.
+                    </documentation>
+                </annotation>
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="resourceTypeGeneral" type="doi:DResourceTypeGeneralAtt" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="DResourceTypeGeneralAtt">
+                <annotation>
+                    <documentation>The general type of a resource.</documentation>
+                    <documentation>Use this attribute to choose the general type of the resource from the
+                        controlled list.
+                    </documentation>
+                </annotation>
+                <restriction base="string">
+                    <enumeration value="Audiovisual"/>
+                    <enumeration value="Collection"/>
+                    <enumeration value="Dataset"/>
+                    <enumeration value="Event"/>
+                    <enumeration value="Image"/>
+                    <enumeration value="InteractiveResource"/>
+                    <enumeration value="Model"/>
+                    <enumeration value="PhysicalObject"/>
+                    <enumeration value="Service"/>
+                    <enumeration value="Software"/>
+                    <enumeration value="Sound"/>
+                    <enumeration value="Text"/>
+                    <enumeration value="Workflow"/>
+                    <enumeration value="Other"/>
+                </restriction>
+            </simpleType>
+            <complexType name="DAlternateIdentifiers">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="alternateIdentifier"
+                             type="doi:DAlternateIdentifier"/>
+                </sequence>
+            </complexType>
+            <complexType name="DAlternateIdentifier">
+                <annotation>
+                    <documentation>An identifier other than the primary identifier applied to the resource being
+                        registered. This may be any alphanumeric string which is unique within its domain of issue. The
+                        format is open
+                    </documentation>
+                </annotation>
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="alternateIdentifierType" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <complexType name="DRelatedIdentifiers">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="relatedIdentifier"
+                             type="doi:DRelatedIdentifier"/>
+                </sequence>
+            </complexType>
+            <complexType name="DRelatedIdentifier">
+                <annotation>
+                    <documentation>Identifiers of related resources. Use this property to indicate subsets of
+                        properties, as appropriate.
+                    </documentation>
+                </annotation>
+                <simpleContent>
+                    <extension base="string">
+                        <attribute name="relatedIdentifierType" type="doi:DRelatedIdentifierTypeAtt" use="required"/>
+                        <attribute name="relationType" type="doi:DRelationTypeAtt" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="DRelatedIdentifierTypeAtt">
+                <annotation>
+                    <documentation>The type of the RelatedIdentifier.</documentation>
+                </annotation>
+                <restriction base="string">
+                    <enumeration value="ARK"/>
+                    <enumeration value="DOI"/>
+                    <enumeration value="EAN13"/>
+                    <enumeration value="EISSN"/>
+                    <enumeration value="Handle"/>
+                    <enumeration value="ISBN"/>
+                    <enumeration value="ISSN"/>
+                    <enumeration value="ISTC"/>
+                    <enumeration value="LISSN"/>
+                    <enumeration value="LSID"/>
+                    <enumeration value="PURL"/>
+                    <enumeration value="UPC"/>
+                    <enumeration value="URL"/>
+                    <enumeration value="URN"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="DRelationTypeAtt">
+                <annotation>
+                    <documentation>Description of the relationship of the resource being registered (A) and the related
+                        resource (B).
+                    </documentation>
+                </annotation>
+                <restriction base="string">
+                    <enumeration value="IsCitedBy"/>
+                    <enumeration value="Cites"/>
+                    <enumeration value="IsSupplementTo"/>
+                    <enumeration value="IsSupplementedBy"/>
+                    <enumeration value="IsContinuedBy"/>
+                    <enumeration value="Continues"/>
+                    <enumeration value="IsNewVersionOf"/>
+                    <enumeration value="IsPreviousVersionOf"/>
+                    <enumeration value="IsPartOf"/>
+                    <enumeration value="HasPart"/>
+                    <enumeration value="IsReferencedBy"/>
+                    <enumeration value="References"/>
+                    <enumeration value="IsDocumentedBy"/>
+                    <enumeration value="Documents"/>
+                    <enumeration value="IsCompiledBy"/>
+                    <enumeration value="Compiles"/>
+                    <enumeration value="IsVariantFormOf"/>
+                    <enumeration value="IsOriginalFormOf"/>
+                </restriction>
+            </simpleType>
+            <complexType name="DSizes">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="size" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="DFormats">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="format" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="DDescriptions">
+                <sequence>
+                    <element maxOccurs="unbounded" minOccurs="0" name="description" type="doi:DDescription"/>
+                </sequence>
+            </complexType>
+            <complexType name="DDescription">
+                <annotation>
+                    <documentation>Subject, keywords, classification codes, or key phrases describing the
+                        resource.
+                    </documentation>
+                </annotation>
+                <simpleContent>
+                    <extension base="doi:NoneEmptyString">
+                        <attribute name="descriptionType" type="doi:DDescriptionTypeAtt" use="required"/>
+                    </extension>
+                </simpleContent>
+            </complexType>
+            <simpleType name="DDescriptionTypeAtt">
+                <annotation>
+                    <documentation>The type of the descriptionType Attribute.</documentation>
+                </annotation>
+                <restriction base="string">
+                    <enumeration value="Abstract"/>
+                    <enumeration value="SeriesInformation"/>
+                    <enumeration value="TableOfContents"/>
+                    <enumeration value="Other"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="NoneEmptyString">
+                <restriction base="string">
+                    <minLength value="1"/>
+                    <maxLength value="4000"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="DUrl">
+                <restriction base="string">
+                    <pattern value="(https?://)?[-\w.]+(:\d{2,5})?(/([\w/_.]*)?)?"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="DResponseCode">
+                <restriction base="string">
+                    <enumeration value="MT001"/>
+                    <enumeration value="MT002"/>
+                    <enumeration value="MT003"/>
+                    <enumeration value="MT004"/>
+                    <enumeration value="MT005"/>
+                    <enumeration value="MT006"/>
+                    <enumeration value="MT007"/>
+                    <enumeration value="MT008"/>
+                    <enumeration value="MT009"/>
+                    <enumeration value="MT010"/>
+                    <enumeration value="MT011"/>
+                    <enumeration value="MT012"/>
+                    <enumeration value="MT013"/>
+                    <enumeration value="MT090"/>
+                    <enumeration value="MT091"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="DResponseTypeAtt">
+                <restriction base="string">
+                    <enumeration value="success"/>
+                    <enumeration value="failure"/>
+                </restriction>
+            </simpleType>
+            <simpleType name="Doi">
+                <restriction base="token">
+                    <pattern value="[1][0][/.].*"/>
+                </restriction>
+            </simpleType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="MintDoiRequest">
+        <wsdl:part element="tns:MintDoiRequest" name="MintDoiRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="MintDoiResponse">
+        <wsdl:part element="tns:MintDoiResponse" name="MintDoiResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="MintDoiService">
+        <wsdl:operation name="MintDoi">
+            <wsdl:input message="tns:MintDoiRequest" name="MintDoiRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:MintDoiResponse" name="MintDoiResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MintDoiServiceSoap11" type="tns:MintDoiService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="MintDoi">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="MintDoiRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="MintDoiResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="MintDoiService">
+        <wsdl:port binding="tns:MintDoiServiceSoap11" name="MintDoiServiceSoap11">
+            <soap:address location="/ws"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

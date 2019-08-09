@@ -13,7 +13,7 @@
             <element name="contributors" type="doi:DContributors" minOccurs="0" maxOccurs="1"/>
             <element name="dates" type="doi:DDates" minOccurs="0" maxOccurs="1"/>
             <element name="language" type="language" minOccurs="0"/>
-            <element name="resourceType" type="doi:DResourceType" minOccurs="0" maxOccurs="1"/>
+            <element name="resourceType" type="doi:DResourceType" minOccurs="1" maxOccurs="1"/>
             <element name="alternateIdentifiers" type="doi:DAlternateIdentifiers" minOccurs="0" maxOccurs="1"/>
             <element name="relatedIdentifiers" type="doi:DRelatedIdentifiers" minOccurs="0" maxOccurs="1"/>
             <element name="sizes" type="doi:DSizes" minOccurs="0" maxOccurs="1"/>
@@ -211,10 +211,10 @@
             </documentation>
         </annotation>
         <restriction base="string">
+            <enumeration value="Audiovisual"/>
             <enumeration value="Collection"/>
             <enumeration value="Dataset"/>
             <enumeration value="Event"/>
-            <enumeration value="Film"/>
             <enumeration value="Image"/>
             <enumeration value="InteractiveResource"/>
             <enumeration value="Model"/>
@@ -223,6 +223,8 @@
             <enumeration value="Software"/>
             <enumeration value="Sound"/>
             <enumeration value="Text"/>
+            <enumeration value="Workflow"/>
+            <enumeration value="Other"/>
         </restriction>
     </simpleType>
 

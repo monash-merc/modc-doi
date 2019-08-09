@@ -7,9 +7,8 @@
        				http://www.springframework.org/schema/context
        				http://www.springframework.org/schema/context/spring-context-4.0.xsd
        	 			http://www.springframework.org/schema/web-services
-       				http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
+       				http://www.springframework.org/schema/web-services/web-services-3.0.xsd">
 
-    <sws:annotation-driven/>
     <context:component-scan base-package="edu.monash.merc.eddy.modc.ws"/>
 
     <!-- SAAJ-specific implementation of the WebServiceMessageFactory. Wraps a SAAJ MessageFactory. This factory will use SAAJ
@@ -40,28 +39,24 @@
         </property>
     </bean>
 
-    <!-- define web service schema -->
+    <!-- define md web service schema -->
     <bean id="mdServiceSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
         <property name="xsd" value="classpath:/xsd/MDService.xsd"/>
     </bean>
 
-    <!-- define web service schema -->
+    <!-- define mint doi web service schema -->
     <bean id="mintDoiSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
         <property name="xsd" value="classpath:/xsd/MintDoiService.xsd"/>
     </bean>
 
-    <!-- define web service schema -->
+    <!-- define update doi web service schema -->
     <bean id="updateDoiSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
         <property name="xsd" value="classpath:/xsd/UpdateDoiService.xsd"/>
     </bean>
 
-    <sws:interceptors>
-        <ref bean="wss4jSecurityInterceptor"/>
-    </sws:interceptors>
-
     <!-- Register Wss4jSecurityInterceptor in the server-side application
      set the validation action to UsernameToken, and configure the callbackHandler -->
-    <bean id="wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+    <bean id="wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor">
         <property name="validationCallbackHandler" ref="springSecurityHandler"/>
         <property name="validationActions" value="UsernameToken"/>
     </bean>
@@ -88,7 +83,7 @@
 
 
      <!-- Authenticating of a web service call using Spring Security to authenticate  user-name token with a digested password -->
-    <bean id="springSecurityHandler" class="org.springframework.ws.soap.security.wss4j.callback.SpringSecurityPasswordValidationCallbackHandler">
+    <bean id="springSecurityHandler" class="org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswordValidationCallbackHandler">
         <property name="userDetailsService" ref="userDetailsService"/>
     </bean>
 

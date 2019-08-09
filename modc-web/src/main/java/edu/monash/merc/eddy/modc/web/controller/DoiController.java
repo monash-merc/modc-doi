@@ -83,6 +83,8 @@ public class DoiController extends BaseController {
         DoiPublisher publisher = new DoiPublisher();
         publisher.setPublisher("Monash University");
         doiResource.setPublisher(publisher);
+        DoiResourceType resourceType = new DoiResourceType();
+        resourceType.setResourceTypeGeneral("Collection");
         return "doi/doi_mint";
     }
 
@@ -100,6 +102,16 @@ public class DoiController extends BaseController {
                 return "doi/doi_mint";
             }
 
+            DoiResourceType resourceType = doiResource.getResourceType();
+            String type = resourceType.getType();
+            if(StringUtils.isBlank(type)){
+                type = "None";
+            }
+            resourceType.setType(type);
+            doiResource.setResourceType(resourceType);
+
+
+//            System.out.println("resource type: " + resourceType.getResourceTypeGeneral() + " - desc: " + resourceType.getType());
             String defaultAuthorizedAppId = doiServiceHelper.getDefaultAuthorizedAppId();
             DoiResponse doiResponse = doiService.mintDoi(defaultAuthorizedAppId, doiResource);
             model.addAttribute("doiResponse", doiResponse);
@@ -183,6 +195,11 @@ public class DoiController extends BaseController {
             addActionError("doi.param.title.at.least.one.required");
         }
 
+        DoiResourceType resourceType = doiResource.getResourceType();
+        String resourceTypeGeneral = resourceType.getResourceTypeGeneral();
+        if (StringUtils.isBlank(resourceTypeGeneral) || StringUtils.equals(resourceTypeGeneral, "none")) {
+            addActionError("doi.param.resource.type.required");
+        }
         DoiPublisher publisher = doiResource.getPublisher();
         String publisherName = publisher.getPublisher();
         if (StringUtils.isBlank(publisherName)) {

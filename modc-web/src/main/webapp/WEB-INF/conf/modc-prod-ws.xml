@@ -7,9 +7,8 @@
        				http://www.springframework.org/schema/context
        				http://www.springframework.org/schema/context/spring-context-4.0.xsd
        	 			http://www.springframework.org/schema/web-services
-       				http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
-
-    <sws:annotation-driven/>
+       				http://www.springframework.org/schema/web-services/web-services-3.0.xsd">
+    <!--Don't use this configuration file-->
     <context:component-scan base-package="edu.monash.merc.eddy.modc.ws"/>
 
     <!-- SAAJ-specific implementation of the WebServiceMessageFactory. Wraps a SAAJ MessageFactory. This factory will use SAAJ
@@ -66,13 +65,13 @@
         <property name="xsd" value="classpath:/xsd/DeactivateDoiService.xsd"/>
     </bean>
 
-    <sws:interceptors>
-        <ref bean="wss4jSecurityInterceptor"/>
-    </sws:interceptors>
+    <!--<sws:interceptors>-->
+        <!--<ref bean="wss4jSecurityInterceptor"/>-->
+    <!--</sws:interceptors>-->
 
     <!-- Register Wss4jSecurityInterceptor in the server-side application
      set the validation action to UsernameToken, and configure the callbackHandler -->
-    <bean id="wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+    <bean id="wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor">
         <property name="validationCallbackHandler" ref="springSecurityHandler"/>
         <property name="validationActions" value="UsernameToken"/>
     </bean>
@@ -99,7 +98,7 @@
 
 
      <!-- Authenticating of a web service call using Spring Security to authenticate  user-name token with a digested password -->
-    <bean id="springSecurityHandler" class="org.springframework.ws.soap.security.wss4j.callback.SpringSecurityPasswordValidationCallbackHandler">
+    <bean id="springSecurityHandler" class="org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswordValidationCallbackHandler">
         <property name="userDetailsService" ref="userDetailsService"/>
     </bean>
 
@@ -148,20 +147,20 @@
         <property name="contextPath" value="edu.monash.merc.eddy.modc.ws.model"/>
     </bean>
 
-    <!-- define MDService endpoint -->
-    <sws:static-wsdl id="MDService" location="classpath:/wsdl/MDService.wsdl" />
+    <!--&lt;!&ndash; define MDService endpoint &ndash;&gt;-->
+    <!--<sws:static-wsdl id="MDService" location="classpath:/wsdl/MDService.wsdl" />-->
 
-    <!-- define MintDoiService endpoint -->
-    <sws:static-wsdl id="MintDoiService" location="classpath:/wsdl/MintDoiService.wsdl" />
+    <!--&lt;!&ndash; define MintDoiService endpoint &ndash;&gt;-->
+    <!--<sws:static-wsdl id="MintDoiService" location="classpath:/wsdl/MintDoiService.wsdl" />-->
 
-    <!-- define UpdateDoiService endpoint -->
-    <sws:static-wsdl id="UpdateDoiService" location="classpath:/wsdl/UpdateDoiService.wsdl" />
+    <!--&lt;!&ndash; define UpdateDoiService endpoint &ndash;&gt;-->
+    <!--<sws:static-wsdl id="UpdateDoiService" location="classpath:/wsdl/UpdateDoiService.wsdl" />-->
 
-    <!-- define DeactivateDoiService endpoint -->
-    <sws:static-wsdl id="DeactivateDoiService" location="classpath:/wsdl/DeactivateDoiService.wsdl" />
+    <!--&lt;!&ndash; define DeactivateDoiService endpoint &ndash;&gt;-->
+    <!--<sws:static-wsdl id="DeactivateDoiService" location="classpath:/wsdl/DeactivateDoiService.wsdl" />-->
 
-    <!-- define ActivateDoiService endpoint -->
-    <sws:static-wsdl id="ActivateDoiService" location="classpath:/wsdl/ActivateDoiService.wsdl" />
+    <!--&lt;!&ndash; define ActivateDoiService endpoint &ndash;&gt;-->
+    <!--<sws:static-wsdl id="ActivateDoiService" location="classpath:/wsdl/ActivateDoiService.wsdl" />-->
 
     <!-- Annotation Soap Fault exception resolver -->
     <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"/>

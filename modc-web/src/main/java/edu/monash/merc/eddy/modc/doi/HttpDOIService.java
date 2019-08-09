@@ -97,12 +97,13 @@ public class HttpDOIService {
             //create a client
             client = this.doiServiceHelper.createClient();
             HttpPost post = new HttpPost(mint_service_url);
-            byte[] doiXmls = loadDoiResource(doiResource);
+            byte[] doiXmls = loadDoiResource(doiResource, this.doiServiceHelper.getDataCiteSchemaVersion());
 
             ByteArrayEntity byteArrayEntity = new ByteArrayEntity(doiXmls);
             if (logger.isDebugEnabled()) {
                 logger.debug("The Doi XML file: " + new String(doiXmls));
             }
+//            System.out.println("The Doi XML file: " + new String(doiXmls));
             post.setEntity(byteArrayEntity);
 
             HttpResponse httpResponse = client.execute(post);
@@ -171,7 +172,7 @@ public class HttpDOIService {
             //create a client
             client = this.doiServiceHelper.createClient();
             HttpPost post = new HttpPost(update_service_url);
-            byte[] doiXmls = loadDoiResource(doiResource);
+            byte[] doiXmls = loadDoiResource(doiResource, this.doiServiceHelper.getDataCiteSchemaVersion());
             ByteArrayEntity byteArrayEntity = new ByteArrayEntity(doiXmls);
 
             if (logger.isDebugEnabled()) {
@@ -309,7 +310,7 @@ public class HttpDOIService {
      * @param doiResource a DoiResource object
      * @return a byte array for doi resource xml file
      */
-    private byte[] loadDoiResource(DoiResource doiResource) {
+    private byte[] loadDoiResource(DoiResource doiResource, String schemaVersion) {
         Map<String, Object> doiTemplateValues = new HashMap<>();
 
         String doi = doiResource.getDoi();
@@ -331,6 +332,9 @@ public class HttpDOIService {
         List<DoiDescription> doiDescriptions = doiResource.getDescriptions();
 
         //set the resource template values
+        if (StringUtils.isNotBlank(schemaVersion)){
+            doiTemplateValues.put("schemaVersion", schemaVersion);
+        }
         //set doi if any
         if (StringUtils.isNotBlank(doi)) {
             doiTemplateValues.put("doi", doi);

@@ -110,7 +110,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID"
         -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/conf/modc-prod-ws.xml</param-value>
+            <param-value>/WEB-INF/conf/modc-ws.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

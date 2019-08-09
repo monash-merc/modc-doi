@@ -797,13 +797,13 @@ input {
 
 .dfield_left_part {
     float: left;
-    width: 140px;
+    width: 180px;
     padding-left: 5px;
 }
 
 .dfield_right_part {
     padding-left: 5px;
-    margin-left: 150px;
+    margin-left: 190px;
     text-align: left;
     font-size: 12px;
     /**border: solid 1px #b0f0c3;*/
@@ -835,7 +835,7 @@ input {
 
 .dfield_comments {
     padding-left: 5px;
-    margin-left: 150px;
+    margin-left: 190px;
     font-size: 11px;
     color: #909090;
 }
