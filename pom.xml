@@ -97,7 +97,7 @@
         <!-- jackson version -->
         <jackson-core.version>2.9.10</jackson-core.version>
 
-        <jackson-databind.version>2.9.10</jackson-databind.version>
+        <jackson-databind.version>2.9.10.1</jackson-databind.version>
 
         <jackson-annotations.version>2.9.10</jackson-annotations.version>
 
