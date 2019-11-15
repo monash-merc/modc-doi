@@ -101,7 +101,6 @@
 
         <jackson-annotations.version>2.10.1</jackson-annotations.version>
 
-
         <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
 
         <jackson-core-asl.version>1.9.13</jackson-core-asl.version>
