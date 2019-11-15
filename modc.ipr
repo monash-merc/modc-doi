@@ -113,9 +113,9 @@
             <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.1" />
             <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.1" />
             <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.28" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9.2" />
-            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.9" />
+            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1" />
+            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1" />
+            <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
             <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.3.6" />
@@ -155,7 +155,7 @@
         <module name="modc-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="modc" target="1.5" />
       <module name="modc-common" target="1.8" />
       <module name="modc-model" target="1.8" />
@@ -372,37 +372,37 @@
         <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.9">
+    <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9">
+    <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9.2">
+    <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.9.9.2/jackson-databind-2.9.9.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.9.9.2/jackson-databind-2.9.9.2-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.9.9.2/jackson-databind-2.9.9.2-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../../maven/mvn_repo/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.fasterxml:classmate:1.0.0">
